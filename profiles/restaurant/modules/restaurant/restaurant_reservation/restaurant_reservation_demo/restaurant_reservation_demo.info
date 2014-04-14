@@ -1,0 +1,13 @@
+name = Restaurant Reservation Demo
+description = Demo content for the Restaurant Reservation module.
+core = 7.x
+package = Restaurant Demo
+version = 7.x-1.0
+project = restaurant_reservation_demo
+dependencies[] = restaurant_reservation
+dependencies[] = migrate
+dependencies[] = date_migrate
+features[features_api][] = api:1
+
+; Migration files
+files[] = restaurant_reservation_demo.migrate.inc

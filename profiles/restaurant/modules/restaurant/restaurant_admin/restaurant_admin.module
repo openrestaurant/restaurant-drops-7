@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * Provides administrative enhancements for the Restaurant Distribution
+ */
+
+/**
+ * Implements hook_menu_alter().
+ */
+function restaurant_admin_menu_alter(&$items) {
+  // Move Panopoly menu items under configuration
+  $paths = array_keys($items);
+  $panopoly_paths = preg_grep('/^admin\/panopoly/', $paths);
+  foreach ($panopoly_paths as $key) {
+    $config_path = preg_replace('/(^admin)/', 'admin/config', $key);
+    $items[$config_path] = $items[$key];
+    unset($items[$key]);
+  }
+}
+
+/**
+ * Implementation of hook_link_alter()
+ */
+function restaurant_admin_menu_link_alter(&$item) {
+  // Automatically set all of the settings elements to be children of the main parent element
+  // @see panopoly_admin_menu_link_alter().
+  if (isset($item['path']) && strpos($item['path'], 'panopoly/settings/')) {
+    $parent_mlid = db_query("SELECT mlid FROM {menu_links} WHERE link_path = :path", array(':path' => 'admin/config/panopoly/settings'))->fetchField();
+    $item['plid'] = $parent_mlid;
+  }
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function restaurant_admin_page_build(&$page) {
+  $path = drupal_get_path('module', 'restaurant_admin');
+
+  $page['page_bottom']['restaurant_admin'] = array(
+    '#attached' => array(),
+  );
+  $attached = &$page['page_bottom']['restaurant_admin']['#attached'];
+  $options = array('every_page' => TRUE);
+
+  // Attach admin css.
+  $attached['css'][$path . '/css/restaurant_admin.css'] = $options;
+}
+

@@ -1,0 +1,8 @@
+/**
+ * @file
+ * CSS for restaurant admin module
+ */
+
+body.contextual-links-region {
+  position: static !important;
+}

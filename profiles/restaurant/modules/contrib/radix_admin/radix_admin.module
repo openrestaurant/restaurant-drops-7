@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Provides administration enhancements, based on Radix theme
+ */
+
+// Menu to be used as the radix admin menu
+define('RADIX_ADMIN_MENU', 'menu-restaurant-admin-menu');
+
+/**
+ * Implements hook_page_build().
+ */
+function radix_admin_page_build(&$page) {
+  $menu = _radix_admin_get_menu();
+  
+  if (radix_admin_admin_menu_enabled() && sizeof($menu)) {
+    $page['page_bottom']['radix_admin_menu']['#markup'] = theme('radix_admin_menu', array('menu' => $menu));
+  }
+}
+
+/** 
+ * Implements hook_theme().
+ */
+function radix_admin_theme() {
+  return array(
+    'radix_admin_menu' => array(
+      'variables' => array('menu' => NULL),
+      'template' => 'templates/radix-admin-menu',
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function radix_admin_preprocess_html(&$variables) {
+  if (radix_admin_admin_menu_enabled()) {
+    $variables['classes_array'][] = 'radix-admin-menu';
+  }
+}
+
+/**
+ * Returns the menu_tree_output for the radix admin menu
+ */
+function _radix_admin_get_menu() {
+  $menu_tree = menu_tree_all_data(RADIX_ADMIN_MENU);
+
+  return menu_tree_output($menu_tree);
+}
+
+
+/**
+ * Returns TRUE if radix admin menu is enabled
+ */
+function radix_admin_admin_menu_enabled() {
+  $menu = _radix_admin_get_menu();
+  
+  if (sizeof($menu)) {
+    return TRUE;
+  }
+
+  return FALSE;
+}

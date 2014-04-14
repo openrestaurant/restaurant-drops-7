@@ -1,0 +1,25 @@
+//
+// Styles for Tabs, Messages, ..etc
+// --------------------------------------------------
+
+// Steps
+// --------------------------------------------------
+.steps-list {
+  margin-top: 25px;
+  .step {
+    margin-bottom: 25px;
+    h6 {
+      margin-bottom: 2px;
+    }
+    h4 {
+      margin-top: 0;
+    }
+    &.active {
+      color: $brand-success;
+    }
+    &.done {
+      @extend .text-muted;
+      @include opacity(0.5);
+    }
+  }
+}

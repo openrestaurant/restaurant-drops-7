@@ -1,0 +1,377 @@
+<?php
+
+/**
+ * Implements hook_install_tasks().
+ */
+function restaurant_install_tasks($install_state) {
+  $tasks = array();
+
+  // Remove status messages.
+  drupal_get_messages('status', TRUE);
+  drupal_get_messages('warning', TRUE);
+
+  // Install demo conntent
+  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+
+  // Add a task to select features for restaurant.
+  $tasks['restaurant_select_features'] = array(
+    'display_name' => st('Select features'),
+    'type' => 'form',
+  );
+
+  // Task to install features.
+  $tasks['restaurant_install_features'] = array(
+    'display_name' => st('Install features'),
+    'type' => 'batch',
+  );
+
+  // Task to install demo content.
+  $tasks['restaurant_install_demo_content'] = array(
+    'display_name' => st('Install demo content'),
+    'type' => 'batch',
+    'display' => $install_demo_content,
+  );
+
+  // Add a task to configure restaurant.
+  $tasks['restaurant_configure_restaurant'] = array(
+    'display_name' => st('Configure restaurant'),
+    'type' => 'form',
+  );
+
+  return $tasks;
+}
+
+/**
+ * Implements hook_install_tasks_alter()
+ */
+function restaurant_install_tasks_alter(&$tasks, $install_state) {
+  // Custom install_finished callback
+  $tasks['install_finished']['function'] = 'restaurant_install_finished';
+
+  $tasks['install_select_profile']['display'] = FALSE;
+  $tasks['install_select_profile']['run'] = INSTALL_TASK_SKIP;
+  $tasks['install_select_locale']['display'] = FALSE;
+  $tasks['install_select_locale']['run'] = INSTALL_TASK_SKIP;
+
+  // Add a welcome screen
+  $welcome_task['restaurant_install_welcome'] = array(
+    'display' => TRUE,
+    'display_name' => st('Welcome'),
+    'type' => 'form',
+    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+  );
+  $tasks_copy = $tasks;
+  $tasks = array_slice($tasks_copy, 0, 2) + $welcome_task + array_slice($tasks_copy, 2);
+
+  // Set the install theme to octal
+  _restaurant_set_theme('octal');
+
+  // Magically go one level deeper in solving years of dependency problems
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+}
+
+/**
+ * Shows the welcome screen for the restaurant profile.
+ */
+function restaurant_install_welcome($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Welcome'));
+
+  $message = '<h2>' . st('Thank you for choosing the Restaurant Distribution!') . '</h2>';
+  $message .= '<p class="lead">' . st('The Restaurant distribution has everything you need to build your restaurant website.') . '</p>';
+  $message .= '<h3>Features</h3>
+<ul>
+<li>Menu management system.</li>
+<li>Built-in reservation system.</li>
+<li>A customizable blog for your restaurant.</li>
+<li>Events and calendar</li>
+<li>Widgets: Map, social links, hours and location, and contact forms.</li>
+<li>Drag and drop functionality to build pages.</li>
+<li>Responsive out of the box. Works on all your devices.</li>
+<li>Awesome support</li>
+</ul>';
+
+  $form['welcome_message'] = array(
+    '#markup' => $message,
+  );
+
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Start installation"),
+    '#weight' => 10,
+    '#attributes' => array(
+      'class' => array('btn', 'btn-lg', 'btn-primary'),
+    ),
+  );
+
+  return $form;
+}
+
+function restaurant_install_welcome_submit($form, &$form_state) {
+  global $install_state;
+
+  // mark welcome step as done
+  $install_state['parameters']['welcome'] = 'done';
+
+  // add default parameters
+  $install_state['parameters']['profile'] = 'restaurant';
+  $install_state['parameters']['locale'] = 'en';
+}
+
+/**
+ * Shows the features form for the restaurant profile.
+ */
+function restaurant_select_features($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Select features'));
+
+  $message = '<p class="lead">' . st('Select features for your restaurant.') . '</p>';
+
+  $form = array();
+  $form['configure_message'] = array(
+    '#markup' => $message,
+    '#weight' => -100,
+  );
+
+  $options_features = array(
+    'restaurant_menu' => st('Menu management'),
+    'restaurant_blog' => st('Blog functionality'),
+    'restaurant_event' => st('Events and calendar'),
+    'restaurant_reservation' => st('Reservation system'),
+    'restaurant_admin' => st('Enhanced administrative interface'),
+    'restaurant_slideshow' => st('Slideshows'),
+    'restaurant_seo' => st('SEO such clean urls, metatags...etc'),
+  );
+  $form['features'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $options_features,
+    '#description' => t('Enable these features for your restaurant.'),
+    '#prefix' => '<h4>' . t('Features') . '</h4>',
+    '#default_value' => array_keys($options_features),
+  );
+
+  $form['demo_content'] = array(
+    '#type' => 'checkbox',
+    '#title' => st('Install demo content?'),
+    '#description' => st('Install demo content such as menus, events and blog posts.'),
+    '#default_value' => '1',
+  );
+
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Install"),
+    '#weight' => 10,
+    '#attributes' => array(
+      'class' => array('btn', 'btn-lg', 'btn-primary'),
+    ),
+  );
+
+  return $form;
+}
+
+function restaurant_select_features_submit($form, &$form_state) {
+  variable_set('restaurant_features', $form_state['values']['features']);
+  variable_set('restaurant_demo_content', $form_state['values']['demo_content']);
+}
+
+/**
+ * Install selected features for restaurant
+ */
+function restaurant_install_features() {
+  $modules = array();
+
+  // Install features.
+  $features = variable_get('restaurant_features', array());
+  foreach ($features as $feature) {
+    $modules[] = $feature;
+  }
+
+  // Install demo content.
+  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+  if ($install_demo_content) {
+    if (!empty($features['restaurant_blog'])) {
+      $modules[] = 'restaurant_blog_demo';
+    }
+    if (!empty($features['restaurant_menu'])) {
+      $modules[] = 'restaurant_menu_demo';
+    }
+    if (!empty($features['restaurant_event'])) {
+      $modules[] = 'restaurant_event_demo';
+    }
+    if (!empty($features['restaurant_reservation'])) {
+      $modules[] = 'restaurant_reservation_demo';
+    }
+    $modules[] = 'restaurant_pages';
+    $modules[] = 'restaurant_demo';
+  }
+
+  // Resolve the dependencies now, so that module_enable() doesn't need
+  // to do it later for each individual module (which kills performance).
+  $files = system_rebuild_module_data();
+  $modules_sorted = array();
+  foreach ($modules as $module) {
+    if (isset($files[$module]) && $files[$module]->requires) {
+      // Create a list of dependencies that haven't been installed yet.
+      $dependencies = array_keys($files[$module]->requires);
+      $dependencies = array_filter($dependencies, '_restaurant_filter_dependencies');
+      // Add them to the module list.
+      $modules = array_merge($modules, $dependencies);
+    }
+  }
+  $modules = array_unique($modules);
+  foreach ($modules as $module) {
+    $modules_sorted[$module] = $files[$module]->sort;
+  }
+  arsort($modules_sorted);
+
+  $operations = array();
+  foreach ($modules_sorted as $module => $weight) {
+    $operations[] = array('_restaurant_enable_module', array($module, $files[$module]->info['name']));
+  }
+
+  $batch = array(
+    'title' => st('Installing features'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+  );
+
+  return $batch;
+}
+
+/**
+ * Callback to install demo content
+ */
+function restaurant_install_demo_content() {
+  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+  $features = variable_get('restaurant_features', array());
+  $operations = array();
+
+  if ($install_demo_content) {
+    // Run all available migrations.
+    $migrations = migrate_migrations();
+    foreach ($migrations as $machine_name => $migration) {
+      $operations[] = array('_restaurant_import', array($machine_name, t('Importing content.')));
+    }
+
+    $batch = array(
+      'title' => st('Installing demo content'),
+      'operations' => $operations,
+      'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+    );
+
+    return $batch;
+  }
+}
+
+/**
+ * Callback for configure restaurant.
+ */
+function restaurant_configure_restaurant($form, &$form_state, &$install_state) {
+  module_load_include('inc', 'panopoly_config', 'panopoly_config.profile');
+  $form += panopoly_config_get_profile_form();
+  return $form;
+}
+
+function restaurant_configure_restaurant_submit($form, &$form_state) {
+  //
+}
+
+/**
+ * Callback for install_finished task
+ */
+function restaurant_install_finished(&$install_state) {
+  drupal_set_title(st('Installation complete'));
+
+  $messages = drupal_set_message();
+
+  // Remember the profile which was used.
+  variable_set('install_profile', drupal_get_profile());
+  variable_set('install_task', 'done');
+
+  // Disable some unwanted modules.
+  $unwanted = array('navbar', 'overlay');
+  module_disable($unwanted);
+
+  // Set the default theme.
+  $theme = 'restaurant_radix';
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+
+  // Set the admin theme.
+  $admin_theme = 'seven';
+  theme_enable(array($admin_theme));
+  variable_set('admin_theme', $admin_theme);
+
+  // Set the node admin theme.
+  variable_set('node_admin_theme', 1);
+ 
+  // Flush theme caches so things are right.
+  system_rebuild_theme_data();
+  drupal_theme_rebuild();
+
+  // Flush all caches to ensure that any full bootstraps during the installer
+  // do not leave stale cached data, and that any content types or other items
+  // registered by the install profile are registered correctly.
+  drupal_flush_all_caches();
+
+  // Install profiles are always loaded last
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('type', 'module')
+    ->condition('name', drupal_get_profile())
+    ->execute();
+
+  // Cache a fully-built schema.
+  drupal_get_schema(NULL, TRUE);
+
+  // Run cron to populate update status tables (if available) so that users
+  // will be warned if they've installed an out of date Drupal version.
+  // Will also trigger indexing of profile-supplied content or feeds.
+  drupal_cron_run();
+
+  if (isset($messages['error'])) {
+    $output = '<p class="lead">' . st('Successfully installed the Restaurant Distribution!') . '</p>';
+    $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+    $output .= l(st('Go to site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
+    return $output;
+  }
+  else {
+    // Since any module can add a drupal_set_message, this can bug the user
+    // when we redirect him to the front page. For a better user experience,
+    // remove all the message that are only "notifications" message.
+    drupal_get_messages('status', TRUE);
+    drupal_get_messages('completed', TRUE);
+
+    // If we don't install drupal using Drush, redirect the user to the front page.
+    if (!drupal_is_cli()) {
+      drupal_goto('');
+    }
+  }
+}
+
+/**
+ * Sets the installation theme for Restaurant profile
+ */
+function _restaurant_set_theme($theme) {
+  if ($GLOBALS['theme'] != $theme) {
+    unset($GLOBALS['theme']);
+
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $theme;
+    _drupal_maintenance_theme();
+  }
+}
+
+/**
+ * array_filter() callback used to filter out already installed dependencies.
+ */
+function _restaurant_filter_dependencies($dependency) {
+  return !module_exists($dependency);
+}

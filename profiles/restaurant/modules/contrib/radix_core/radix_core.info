@@ -1,0 +1,6 @@
+name = Radix Core
+description = Brings all the Radix components (theme and modules) together
+core = 7.x
+
+dependencies[] = radix_admin
+dependencies[] = radix_layouts

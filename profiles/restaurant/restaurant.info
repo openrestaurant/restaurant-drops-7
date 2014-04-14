@@ -1,0 +1,68 @@
+name = Restaurant
+description = "A Drupal Distribution to build Restaurant websites"
+version = VERSION
+core = 7.x
+distribution_name = Restaurant
+exclusive = 1
+
+; Drupal Core
+dependencies[] = menu
+dependencies[] = image
+dependencies[] = list
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = search
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = dblog
+dependencies[] = update
+
+; Panopoly Foundation
+dependencies[] = panopoly_core
+dependencies[] = panopoly_images
+dependencies[] = panopoly_theme
+dependencies[] = panopoly_magic
+dependencies[] = panopoly_widgets
+dependencies[] = panopoly_admin
+dependencies[] = panopoly_users
+
+; Panopoly Toolset
+dependencies[] = panopoly_pages
+; dependencies[] = panopoly_search
+dependencies[] = panopoly_wysiwyg
+
+; Panopoly Recommended - Admin
+dependencies[] = backports
+dependencies[] = simplified_menu_admin
+dependencies[] = save_draft
+dependencies[] = module_filter
+dependencies[] = date_popup_authored
+
+; Panopoly Recommended - Other
+dependencies[] = devel
+dependencies[] = uuid
+
+; Panopoly Contrib
+dependencies[] = panopoly_config
+dependencies[] = panopoly_seo
+
+; Restaurant
+dependencies[] = restaurant_base
+
+; Restaurant Core Dependencies
+dependencies[] = toolbar
+dependencies[] = shortcut
+dependencies[] = contact
+
+; Other
+copyright = Drupal is a registered trademark of Dries Buytaert.
+
+; Information added by drush on 2014-02-09
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "restaurant"
+datestamp = "1391985038"
+

@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Widgets feature.
+ */
+
+include_once 'restaurant_widgets.features.inc';
+include_once 'restaurant_widgets.theme.inc';
+
+/** 
+ * Implements hook_entity_info_alter()
+ */
+function restaurant_widgets_entity_info_alter(&$entity_info) {
+  // Page banner
+  $entity_info['fieldable_panels_pane']['bundles']['page_banner'] = array(
+    'label' => t('Add page banner'),
+    'pane category' => t('Custom'),
+    'pane top level' => TRUE,
+    'pane icon' => drupal_get_path('module', 'restaurant_widgets') . '/images/icon/icon-widget.png',
+    'admin' => array(
+      'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
+      'bundle argument' => 4,
+      'real path' => 'admin/structure/fieldable-panels-panes/manage/page-banner',
+      'access arguments' => array('administer fieldable panels panes'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_view_mode_templates().
+ */
+function restaurant_widgets_view_mode_templates() {
+  return array(
+    'fieldable_panels_pane__page_banner',
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function restaurant_widgets_form_fieldable_panels_panes_entity_edit_form_alter(&$form, &$form_state) {
+  // dpm($form);
+}

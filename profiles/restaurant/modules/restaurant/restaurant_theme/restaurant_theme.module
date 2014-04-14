@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Theming helpers for the Restaurant Distribution
+ */
+
+/**
+ * Implementation of hook_ctools_plugin_directory()
+ */
+function restaurant_theme_ctools_plugin_directory($module, $plugin) {
+  return 'plugins/' . $plugin;
+}

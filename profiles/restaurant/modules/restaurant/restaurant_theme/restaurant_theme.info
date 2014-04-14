@@ -1,0 +1,9 @@
+name = Restaurant Theme
+description = Theming helpers for the Restaurant Distribution
+core = 7.x
+package = Restaurant
+php = 5.2.4
+project = restaurant_theme
+dependencies[] = restaurant_base
+dependencies[] = radix_core
+features[features_api][] = api:1

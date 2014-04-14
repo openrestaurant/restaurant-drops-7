@@ -1,0 +1,13 @@
+name = Restaurant Event Demo
+description = Demo content for the Restaurant Event.
+core = 7.x
+package = Restaurant Demo
+version = 7.x-1.0-dev
+project = restaurant_event_demo
+dependencies[] = restaurant_event
+dependencies[] = migrate
+dependencies[] = date_migrate
+features[features_api][] = api:1
+
+; Migration files
+files[] = restaurant_event_demo.migrate.inc

@@ -1,0 +1,21 @@
+name = Panopoly SEO
+description = Enhance your site for search engines.
+core = 7.x
+package = Panopoly Apps
+dependencies[] = apps_compatible
+dependencies[] = features
+dependencies[] = globalredirect
+dependencies[] = metatag
+dependencies[] = pathauto
+features[features_api][] = api:2
+features[user_permission][] = administer meta tags
+features[user_permission][] = administer pathauto
+features[user_permission][] = create url aliases
+features[user_permission][] = edit meta tags
+
+; Information added by Drupal.org packaging script on 2014-03-08
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "panopoly_seo"
+datestamp = "1394309906"
+

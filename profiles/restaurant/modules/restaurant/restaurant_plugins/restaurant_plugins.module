@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Provides multiple plugins for the Restaurant Distribution
+ */
+
+include_once 'restaurant_plugins.theme.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */ 
+function restaurant_plugins_ctools_plugin_directory($module, $plugin) {
+  return 'plugins/' . $plugin;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function restaurant_plugins_theme() {
+  return array(
+    'contact_info_pane' => array(
+      'variables' => array('address' => NULL, 'phone' => NULL, 'email' => NULL),
+      'template' => 'templates/contact-info-pane',
+      'file' => 'restaurant_plugins.theme.inc',
+    ),
+    'navbar' => array(
+      'variables' => array('style' => NULL, 'position' => NULL, 'width' => NULL),
+      'template' => 'templates/navbar',
+      'file' => 'restaurant_plugins.theme.inc',
+    ),
+    'page_header' => array(
+      'variables' => array('title' => NULL, 'subtitle' => NULL),
+      'template' => 'templates/page-header',
+      'file' => 'restaurant_plugins.theme.inc',
+    ),
+    'social_widget' => array(
+      'variables' => array('networks' => NULL),
+      'template' => 'templates/social-widget',
+      'file' => 'restaurant_plugins.theme.inc',
+    ),
+  );
+}
