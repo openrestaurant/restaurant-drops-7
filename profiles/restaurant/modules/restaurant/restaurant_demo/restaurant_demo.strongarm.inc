@@ -63,7 +63,7 @@ Saturday & Sunday
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'restaurant_config_site_mail';
-  $strongarm->value = 'arshad@chummun.com';
+  $strongarm->value = 'restaurant@example.com';
   $export['restaurant_config_site_mail'] = $strongarm;
 
   $strongarm = new stdClass();
