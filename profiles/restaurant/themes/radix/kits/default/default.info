@@ -24,11 +24,3 @@ stylesheets-conditional[IE 8][all][] = assets/stylesheets/ie8.css
 
 ; Javascript
 scripts[] = assets/javascripts/script.js
-
-
-; Information added by drush on 2014-04-14
-version = "7.x-3.0-alpha3+23-dev"
-core = "7.x"
-project = "radix"
-datestamp = "1397499823"
-
