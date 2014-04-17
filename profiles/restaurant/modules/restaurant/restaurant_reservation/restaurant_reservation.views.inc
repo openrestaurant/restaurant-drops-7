@@ -19,5 +19,13 @@ function restaurant_reservation_views_data() {
     ),
   );
 
+  $data['node']['reservation_calendar_field'] = array(
+    'title' => t('Reservation calendar field'),
+    'help' => t('Displays a reservation for a calendar.'),
+    'field' => array(
+      'handler' => 'restaurant_reservation_handler_reservation_calendar_field',
+    ),
+  );
+
   return $data;
 }

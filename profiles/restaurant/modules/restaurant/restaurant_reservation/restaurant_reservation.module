@@ -34,7 +34,7 @@ function restaurant_reservation_init() {
 
   // Redirect to reservation admin page when viewing the node.
   if ($node = menu_get_object()) {
-    if ($node->type == 'reservation' && arg(2) == '') {
+    if ($node->type == 'reservation' && arg(2) == '' && !drupal_match_path(current_path(), 'admin/reservations/view/*')) {
       drupal_goto('admin/reservations/view/' . $node->nid);
     }
   }
@@ -58,6 +58,15 @@ function restaurant_reservation_menu() {
     'title' => 'Manage reservations',
     'weight' => 20,
     'page callback' => 'restaurant_reservation_manage_reservations_admin',
+    'access arguments' => array('administer reservations'),
+    'file' => 'restaurant_reservation.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/reservations/calendar'] = array(
+    'title' => 'Calendar',
+    'weight' => 30,
+    'page callback' => 'restaurant_reservation_calendar_admin',
     'access arguments' => array('administer reservations'),
     'file' => 'restaurant_reservation.admin.inc',
     'type' => MENU_LOCAL_TASK,
@@ -101,6 +110,10 @@ function restaurant_reservation_theme() {
   return array(
     'restaurant_reservation_status' => array(
       'variables' => array('status' => NULL),
+      'file' => 'restaurant_reservation.theme.inc',
+    ),
+    'reservation_calendar_field' => array(
+      'variables' => array('reservation' => NULL, 'text' => NULL),
       'file' => 'restaurant_reservation.theme.inc',
     ),
   );
@@ -270,13 +283,19 @@ function computed_field_field_reservation_number_display($field, $entity_field_i
 /**
  * Available statuses.
  *
- * @param $status
- *  The status of the reservations to find. pending, confirmed or cancelled.
+ * @param $reverse
+ *  If TRUE, array_flip is applied to the return array.
  */
-function restaurant_reservation_get_statuses() {
+function restaurant_reservation_get_statuses($reverse = FALSE) {
   // Get values from field.
   $info = field_info_field('field_reservation_status');
-  return isset($info['settings']['allowed_values']) ? $info['settings']['allowed_values'] : array();
+  $statuses = isset($info['settings']['allowed_values']) ? $info['settings']['allowed_values'] : array();
+
+  if ($reverse) {
+    $statuses = array_flip($statuses);
+  }
+
+  return $statuses;
 }
 
 /**
@@ -287,9 +306,9 @@ function restaurant_reservation_get_statuses() {
  */
 function _restaurant_reservation_get_status_color($status) {
   $colors = array(
-    'Pending' => 'info',
-    'Confirmed' => 'success',
-    'Cancelled' => 'danger',
+    'pending' => 'info',
+    'confirmed' => 'success',
+    'cancelled' => 'danger',
   );
 
   return isset($colors[$status]) ? $colors[$status] : 'info';

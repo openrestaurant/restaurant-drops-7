@@ -657,7 +657,7 @@ function restaurant_reservation_defaultconfig_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_reservation_pattern';
-  $strongarm->value = 'admin/reservations/view/[node:nid]';
+  $strongarm->value = 'reservations/[node:field_reservation_number]';
   $export['pathauto_node_reservation_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

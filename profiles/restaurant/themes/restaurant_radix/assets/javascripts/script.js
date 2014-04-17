@@ -11,6 +11,13 @@
     $('.nav > li.dropdown').mouseleave(function() {
       $(this).removeClass('open');
     });
+    
+    // Make dropdown toggle clickable.
+    $('.dropdown-toggle').on('click', function() {
+      if ($(this).attr('href')) {
+        window.location.href = $(this).attr('href');
+      }
+    });
 
     // Equal height for .row-eh and .col-eh
     $('body').imagesLoaded(function() {

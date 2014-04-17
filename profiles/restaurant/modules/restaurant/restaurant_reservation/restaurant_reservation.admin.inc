@@ -21,6 +21,14 @@ function restaurant_reservation_add_reservation_admin() {
 }
 
 /**
+ * Page callback for admin/reservations/calendar.
+ */
+function restaurant_reservation_calendar_admin() {
+  // Return content for admin/reservations/calendar/month path.
+  return menu_execute_active_handler('admin/reservations/calendar/month');
+}
+
+/**
  * Update status frm
  *
  * @param $reservation_id

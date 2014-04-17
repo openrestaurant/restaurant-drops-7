@@ -33,10 +33,6 @@ class restaurant_reservation_handler_update_status_form extends views_handler_fi
    */
   function option_definition() {
     $options = parent::option_definition();
- 
-    $options['option_a'] = array('default' => '');
-    $options['option_b'] = array('default' => '');
- 
     return $options;
   }
  
