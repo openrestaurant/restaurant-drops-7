@@ -1,0 +1,18 @@
+//
+// Styles for main layout
+// --------------------------------------------------
+
+// Container
+// --------------------------------------------------
+.container {
+  max-width: 970px !important; // Change this to make site wider or smaller.
+}
+
+body {
+  padding: 25px;
+  .sidebar {
+    @media (max-width: $screen-md-min) {
+      display: none;
+    }
+  }
+}

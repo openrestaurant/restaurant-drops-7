@@ -1,10 +1,10 @@
-name        = Octal
-description = A base installation theme based on <a href="http://drupal.org/project/radix">Radix</a>
+name        = Restaurant Octal
+description = Installation theme for the restaurant distribution.
 screenshot  = screenshot.png
 core        = 7.x
 
-; Base - Radix
-base theme  = radix
+; Base - Octal
+base theme  = octal
 
 ; Regions
 regions[content] = Content
@@ -16,7 +16,8 @@ plugins[panels][layouts] = panels/layouts
 plugins[panels][styles] = panels/styles
 
 ; CSS - General
-stylesheets[all][]     = assets/stylesheets/octal-style.css
+stylesheets[all][]     = assets/stylesheets/screen.css
+stylesheets[print][]   = assets/stylesheets/print.css
 
 ; CSS - Conditional
 stylesheets-conditional[IE 7][all][] = assets/stylesheets/ie7.css
