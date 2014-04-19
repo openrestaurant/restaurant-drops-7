@@ -73,14 +73,14 @@ projects[restaurant_base][download][url] = "https://github.com/arshad/restaurant
 
 projects[restaurant_theme][type] = module
 projects[restaurant_theme][download][type] = git
-projects[restaurant_theme][download][revision] = fac418d
+projects[restaurant_theme][download][revision] = d488030
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 projects[restaurant_theme][download][url] = "https://github.com/arshad/restaurant_theme.git"
 
 projects[restaurant_admin][type] = module
 projects[restaurant_admin][download][type] = git
-projects[restaurant_admin][download][revision] = ce7f46c
+projects[restaurant_admin][download][revision] = 15d5306
 projects[restaurant_admin][download][branch] = 7.x-1.x
 projects[restaurant_admin][subdir] = restaurant
 projects[restaurant_admin][download][url] = "https://github.com/arshad/restaurant_admin.git"
@@ -117,7 +117,7 @@ projects[restaurant_user][download][url] = "https://github.com/arshad/restaurant
 
 projects[restaurant_menu][type] = module
 projects[restaurant_menu][download][type] = git
-projects[restaurant_menu][download][revision] = 40691dd
+projects[restaurant_menu][download][revision] = c2aa5e6
 projects[restaurant_menu][download][branch] = 7.x-1.x
 projects[restaurant_menu][subdir] = restaurant
 projects[restaurant_menu][download][url] = "https://github.com/arshad/restaurant_menu.git"
@@ -131,7 +131,7 @@ projects[restaurant_blog][download][url] = "https://github.com/arshad/restaurant
 
 projects[restaurant_event][type] = module
 projects[restaurant_event][download][type] = git
-projects[restaurant_event][download][revision] = 239c7b2
+projects[restaurant_event][download][revision] = 6e13c8c
 projects[restaurant_event][download][branch] = 7.x-1.x
 projects[restaurant_event][subdir] = restaurant
 projects[restaurant_event][download][url] = "https://github.com/arshad/restaurant_event.git"
@@ -145,7 +145,7 @@ projects[restaurant_slideshow][download][url] = "https://github.com/arshad/resta
 
 projects[restaurant_pages][type] = module
 projects[restaurant_pages][download][type] = git
-projects[restaurant_pages][download][revision] = 15c6cc6
+projects[restaurant_pages][download][revision] = 6d3a426
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][url] = "https://github.com/arshad/restaurant_pages.git"
@@ -159,7 +159,7 @@ projects[restaurant_demo][download][url] = "https://github.com/arshad/restaurant
 
 projects[restaurant_reservation][type] = module
 projects[restaurant_reservation][download][type] = git
-projects[restaurant_reservation][download][revision] = 7054f07
+projects[restaurant_reservation][download][revision] = eb0cc79
 projects[restaurant_reservation][download][branch] = 7.x-1.x
 projects[restaurant_reservation][subdir] = restaurant
 projects[restaurant_reservation][download][url] = "https://github.com/arshad/restaurant_reservation.git"
@@ -170,3 +170,10 @@ projects[restaurant_seo][download][revision] = 5dd3d94
 projects[restaurant_seo][download][branch] = 7.x-1.x
 projects[restaurant_seo][subdir] = restaurant
 projects[restaurant_seo][download][url] = "https://github.com/arshad/restaurant_seo.git"
+
+projects[restaurant_location][type] = module
+projects[restaurant_location][download][type] = git
+projects[restaurant_location][download][revision] = 1a93192
+projects[restaurant_location][download][branch] = 7.x-1.x
+projects[restaurant_location][subdir] = restaurant
+projects[restaurant_location][download][url] = "https://github.com/arshad/restaurant_location.git"

@@ -1,6 +1,12 @@
 <?php
 /**
  * @file
+ * Code for the Restaurant Admin feature.
+ */
+
+include_once 'restaurant_admin.features.inc';
+/**
+ * @file
  * Provides administrative enhancements for the Restaurant Distribution
  */
 

@@ -31,6 +31,11 @@
     clear: left;
   }
 }
+.view-menus {
+  .view-grouping-header {
+    margin-top: 0;
+  }
+}
 
 // Events
 // --------------------------------------------------
@@ -38,5 +43,15 @@
   .views-row {
     margin-bottom: 15px;
     padding-bottom: 15px;
+  }
+}
+
+// Locations
+// --------------------------------------------------
+.view-locations {
+  .views-row {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid $gray-lighter;
   }
 }

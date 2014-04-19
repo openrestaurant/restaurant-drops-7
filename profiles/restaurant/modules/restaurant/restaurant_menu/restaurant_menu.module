@@ -95,3 +95,18 @@ function restaurant_menu_preprocess_views_view_table(&$variables) {
     drupal_add_css(drupal_get_path('module', 'restaurant_menu') . '/css/restaurant_menu.css');
   }
 }
+
+/**
+ * Implements hook_default_page_manager_pages_alter().
+ */
+function restaurant_menu_default_page_manager_pages_alter(&$pages) {
+  // Remove pane if location is not enabled.
+  if (isset($pages['menus'])) {
+    if (!module_exists('restaurant_location')) {
+      $pane_new_2 = $pages['menus']->default_handlers['page_menus_panel_context']->conf['display']->content['new-2'];
+      if ($pane_new_2->subtype == 'location_browse_menus_link') {
+        unset($pages['menus']->default_handlers['page_menus_panel_context']->conf['display']->content['new-2']);
+      }
+    }
+  }
+}

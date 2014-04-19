@@ -24,7 +24,7 @@ function restaurant_menu_default_page_manager_pages() {
     'type' => 'normal',
     'title' => 'Menus',
     'name' => 'main-menu',
-    'weight' => '1',
+    'weight' => '-9',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -71,6 +71,15 @@ function restaurant_menu_default_page_manager_pages() {
       'full_width_1' => NULL,
       'full_width_2' => NULL,
       'full_width_3' => NULL,
+      'contentmain1_left' => NULL,
+      'contentmain1_right' => NULL,
+      'contentmain2_left' => NULL,
+      'contentmain2_right' => NULL,
+      'contentmain4_left' => NULL,
+      'contentmain4_right' => NULL,
+      'fullwidth1' => NULL,
+      'fullwidth2' => NULL,
+      'fullwidth3' => NULL,
     ),
   );
   $display->cache = array();
@@ -102,6 +111,24 @@ function restaurant_menu_default_page_manager_pages() {
     $display->panels['contentmain2_left'][0] = 'new-1';
     $pane = new stdClass();
     $pane->pid = 'new-2';
+    $pane->panel = 'contentmain2_left';
+    $pane->type = 'location_browse_menus_link';
+    $pane->subtype = 'location_browse_menus_link';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['contentmain2_left'][1] = 'new-2';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
     $pane->panel = 'contentmain2_right';
     $pane->type = 'fieldable_panels_pane';
     $pane->subtype = 'fpid:24';
@@ -111,15 +138,17 @@ function restaurant_menu_default_page_manager_pages() {
       'view_mode' => 'Full',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['contentmain2_right'][0] = 'new-2';
+    $display->content['new-3'] = $pane;
+    $display->panels['contentmain2_right'][0] = 'new-3';
     $pane = new stdClass();
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-4';
     $pane->panel = 'contentmain2_right';
     $pane->type = 'views_panes';
     $pane->subtype = 'menus-all_menus';
@@ -138,8 +167,8 @@ function restaurant_menu_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['contentmain2_right'][1] = 'new-3';
+    $display->content['new-4'] = $pane;
+    $display->panels['contentmain2_right'][1] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

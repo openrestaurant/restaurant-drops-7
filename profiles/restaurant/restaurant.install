@@ -78,17 +78,18 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
   $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
-  $message .= '<p class="lead">' . st('The Restaurant distribution has everything you need to build your restaurant website.') . '</p>';
+  $message .= '<p class="lead">' . st('The Restaurant Distribution has everything you need to build your restaurant website.') . '</p>';
   $message .= '<h3>Features</h3>
 <ul>
 <li>Menu management system.</li>
 <li>Built-in reservation system.</li>
 <li>A customizable blog for your restaurant.</li>
-<li>Events and calendar</li>
+<li>Events and calendar.</li>
+<li>Manage multiple restaurant locations and menus by location.</li>
 <li>Widgets: Map, social links, hours and location, and contact forms.</li>
 <li>Drag and drop functionality to build pages.</li>
 <li>Responsive out of the box. Works on all your devices.</li>
-<li>Awesome support</li>
+<li>Awesome support.</li>
 </ul>';
 
   $form['welcome_message'] = array(
@@ -142,6 +143,7 @@ function restaurant_select_features($form, &$form_state, &$install_state) {
     'restaurant_blog' => st('Blog functionality'),
     'restaurant_event' => st('Events and calendar'),
     'restaurant_reservation' => st('Reservation system'),
+    'restaurant_location' => st('Multiple restaurant locations'),
     'restaurant_admin' => st('Enhanced administrative interface'),
     'restaurant_slideshow' => st('Slideshows'),
     'restaurant_seo' => st('SEO such clean urls, metatags...etc'),
@@ -208,6 +210,9 @@ function restaurant_install_features() {
     }
     if (!empty($features['restaurant_reservation'])) {
       $modules[] = 'restaurant_reservation_demo';
+    }
+    if (!empty($features['restaurant_location'])) {
+      $modules[] = 'restaurant_location_demo';
     }
     $modules[] = 'restaurant_pages';
     $modules[] = 'restaurant_demo';
@@ -297,7 +302,7 @@ function restaurant_install_finished(&$install_state) {
   variable_set('install_task', 'done');
 
   // Disable some unwanted modules.
-  $unwanted = array('navbar', 'overlay');
+  $unwanted = array('navbar', 'overlay', 'toolbar');
   module_disable($unwanted);
 
   // Set the default theme.
@@ -338,7 +343,7 @@ function restaurant_install_finished(&$install_state) {
   drupal_cron_run();
 
   if (isset($messages['error'])) {
-    $output = '<p class="lead">' . st('Successfully installed the Restaurant Distribution!') . '</p>';
+    $output = '<p class="lead">' . st('You have successfully installed the Restaurant Distribution.') . '</p>';
     $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     $output .= l(st('Go to site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
     return $output;

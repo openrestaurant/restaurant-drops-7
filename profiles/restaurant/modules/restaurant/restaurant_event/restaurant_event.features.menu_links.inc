@@ -27,7 +27,7 @@ function restaurant_event_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 1,
     'expanded' => 1,
-    'weight' => -47,
+    'weight' => 10,
     'customized' => 1,
   );
   // Exported menu link: main-menu_past-events:events/past

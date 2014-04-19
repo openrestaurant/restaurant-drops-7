@@ -269,6 +269,14 @@ function restaurant_menu_views_default_views() {
   $handler->display->display_options['fields']['field_menu_categories']['field'] = 'field_menu_categories';
   $handler->display->display_options['fields']['field_menu_categories']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_menu_categories']['delta_offset'] = '0';
+  /* Field: Content: Locations */
+  $handler->display->display_options['fields']['field_menu_locations']['id'] = 'field_menu_locations';
+  $handler->display->display_options['fields']['field_menu_locations']['table'] = 'field_data_field_menu_locations';
+  $handler->display->display_options['fields']['field_menu_locations']['field'] = 'field_menu_locations';
+  $handler->display->display_options['fields']['field_menu_locations']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_menu_locations']['delta_offset'] = '0';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
