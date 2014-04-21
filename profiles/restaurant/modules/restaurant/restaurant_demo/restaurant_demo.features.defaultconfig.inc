@@ -25,7 +25,7 @@ function restaurant_demo_defaultconfig_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'restaurant_config_address';
-  $strongarm->value = '300 Beale St, San Francisco, CA 94105';
+  $strongarm->value = 'Dolores Street, San Francisco, CA 94110';
   $export['restaurant_config_address'] = $strongarm;
 
   $strongarm = new stdClass();
