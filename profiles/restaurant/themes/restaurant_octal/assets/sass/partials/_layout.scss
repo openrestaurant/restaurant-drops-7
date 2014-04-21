@@ -9,10 +9,16 @@
 }
 
 body {
-  padding: 25px;
+  .jumbotron {
+    // background: lighten($brand-primary, 50);
+  }
   .sidebar {
     @media (max-width: $screen-md-min) {
       display: none;
     }
+  }
+  #main-wrapper {
+    padding-top: 50px;
+    padding-bottom: 150px;
   }
 }

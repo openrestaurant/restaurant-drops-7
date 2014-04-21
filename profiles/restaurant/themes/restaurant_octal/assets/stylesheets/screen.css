@@ -10735,15 +10735,16 @@ html.js fieldset.collapsed {
   max-width: 970px !important;
 }
 
-/* line 11, ../sass/partials/_layout.scss */
-body {
-  padding: 25px;
-}
 @media (max-width: 992px) {
-  /* line 13, ../sass/partials/_layout.scss */
+  /* line 15, ../sass/partials/_layout.scss */
   body .sidebar {
     display: none;
   }
+}
+/* line 20, ../sass/partials/_layout.scss */
+body #main-wrapper {
+  padding-top: 50px;
+  padding-bottom: 150px;
 }
 
 /* line 7, ../sass/partials/_structure.scss */

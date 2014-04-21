@@ -1,0 +1,9 @@
+name = Restaurant Opentable
+description = Opentable integration for the Restaurant Distribution
+core = 7.x
+package = Restaurant
+version = 7.x-1.0
+project = restaurant_opentable
+dependencies[] = libraries
+dependencies[] = panopoly_config
+features[features_api][] = api:2

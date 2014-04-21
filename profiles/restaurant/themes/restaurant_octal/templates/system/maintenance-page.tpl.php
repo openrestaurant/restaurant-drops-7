@@ -8,6 +8,13 @@
     <?php print $scripts; ?>
   </head>
   <body class="<?php print $classes; ?>">
+    
+  <div class="jumbotron">
+    <div class="container">
+      <h1><?php print t('Drupal Restaurant'); ?></h1>
+      <p class="lead"><?php print t('Everything you need to build Restaurant websites.'); ?></p>
+    </div>
+  </div>
 
   <div id="main-wrapper">
     <div id="main" class="main container">
