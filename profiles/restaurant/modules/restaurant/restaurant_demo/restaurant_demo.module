@@ -16,9 +16,9 @@ function restaurant_demo_default_page_manager_pages_alter(&$defaults) {
       $defaults['home']->default_handlers['page_home_panel_context']->conf['display']->content['new-8']->subtype = 'fpid:' . $fpid8;
     }
 
-    if ($fpid10 = variable_get('home__page_home_panel_context__new-10')) {
-      $defaults['home']->default_handlers['page_home_panel_context']->conf['display']->content['new-10']->subtype = 'fpid:' . $fpid10;
-    }
+    // if ($fpid10 = variable_get('home__page_home_panel_context__new-10')) {
+    //   $defaults['home']->default_handlers['page_home_panel_context']->conf['display']->content['new-10']->subtype = 'fpid:' . $fpid10;
+    // }
   }
   if (isset($defaults['reservation'])) {
     if ($fpid = variable_get('reservation__page_reservation_panel_context_2__new-2')) {

@@ -6,4 +6,5 @@ version = 7.x-1.0
 project = restaurant_opentable
 dependencies[] = libraries
 dependencies[] = panopoly_config
+dependencies[] = restaurant_base
 features[features_api][] = api:2

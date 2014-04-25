@@ -83,10 +83,10 @@
   <?php if ($content['contentmain4_left'] || $content['contentmain4_right']): ?>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 panel-pane-region panel-pane-region-contentmain4-left <?php print $extra_classes['contentmain4_left']; ?>">
+        <div class="col-md-6 panel-pane-region panel-pane-region-contentmain4-left <?php print $extra_classes['contentmain4_left']; ?>">
           <?php print $content['contentmain4_left']; ?>
         </div>
-        <div class="col-md-4 panel-pane-region panel-pane-region-contentmain4-right <?php print $extra_classes['contentmain4_right']; ?>">
+        <div class="col-md-6 panel-pane-region panel-pane-region-contentmain4-right <?php print $extra_classes['contentmain4_right']; ?>">
           <?php print $content['contentmain4_right']; ?>
         </div>
       </div>

@@ -122,14 +122,14 @@ projects[restaurant_menu][download][url] = "http://git.drupal.org/project/restau
 
 projects[restaurant_blog][type] = module
 projects[restaurant_blog][download][type] = git
-projects[restaurant_blog][download][revision] = 6016b35
+projects[restaurant_blog][download][revision] = b6e6f7f
 projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][subdir] = restaurant
 projects[restaurant_blog][download][url] = "http://git.drupal.org/project/restaurant_blog.git"
 
 projects[restaurant_event][type] = module
 projects[restaurant_event][download][type] = git
-projects[restaurant_event][download][revision] = 6e13c8c
+projects[restaurant_event][download][revision] = 6d4c884
 projects[restaurant_event][download][branch] = 7.x-1.x
 projects[restaurant_event][subdir] = restaurant
 projects[restaurant_event][download][url] = "http://git.drupal.org/project/restaurant_event.git"
@@ -143,14 +143,14 @@ projects[restaurant_slideshow][download][url] = "http://git.drupal.org/project/r
 
 projects[restaurant_pages][type] = module
 projects[restaurant_pages][download][type] = git
-projects[restaurant_pages][download][revision] = 6d3a426
+projects[restaurant_pages][download][revision] = 94c3fc5
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][url] = "http://git.drupal.org/project/restaurant_pages.git"
 
 projects[restaurant_demo][type] = module
 projects[restaurant_demo][download][type] = git
-projects[restaurant_demo][download][revision] = 1f46611
+projects[restaurant_demo][download][revision] = 29176b8
 projects[restaurant_demo][download][branch] = 7.x-1.x
 projects[restaurant_demo][subdir] = restaurant
 projects[restaurant_demo][download][url] = "http://git.drupal.org/project/restaurant_demo.git"
@@ -171,14 +171,14 @@ projects[restaurant_seo][download][url] = "http://git.drupal.org/project/restaur
 
 projects[restaurant_location][type] = module
 projects[restaurant_location][download][type] = git
-projects[restaurant_location][download][revision] = 1a93192
+projects[restaurant_location][download][revision] = 5637e99
 projects[restaurant_location][download][branch] = 7.x-1.x
 projects[restaurant_location][subdir] = restaurant
 projects[restaurant_location][download][url] = "http://git.drupal.org/project/restaurant_location.git"
 
 projects[restaurant_opentable][type] = module
 projects[restaurant_opentable][download][type] = git
-projects[restaurant_opentable][download][revision] = 7011374
+projects[restaurant_opentable][download][revision] = ef77ec1
 projects[restaurant_opentable][download][branch] = 7.x-1.x
 projects[restaurant_opentable][subdir] = restaurant
 projects[restaurant_opentable][download][url] = "http://git.drupal.org/project/restaurant_opentable.git"

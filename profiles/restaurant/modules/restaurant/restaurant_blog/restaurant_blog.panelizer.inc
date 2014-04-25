@@ -417,7 +417,7 @@ function restaurant_blog_panelizer_defaults() {
   $panelizer->link_to_entity = TRUE;
   $panelizer->extra = array();
   $display = new panels_display();
-  $display->layout = 'onecol';
+  $display->layout = 'radix_phelan';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -425,6 +425,8 @@ function restaurant_blog_panelizer_defaults() {
       'sidebar' => NULL,
       'contentmain' => NULL,
       'middle' => NULL,
+      'column1' => NULL,
+      'column2' => NULL,
     ),
   );
   $display->cache = array();
@@ -433,7 +435,7 @@ function restaurant_blog_panelizer_defaults() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-12';
-    $pane->panel = 'middle';
+    $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_blog_post_featured_image';
     $pane->shown = TRUE;
@@ -461,10 +463,10 @@ function restaurant_blog_panelizer_defaults() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-12'] = $pane;
-    $display->panels['middle'][0] = 'new-12';
+    $display->panels['column1'][0] = 'new-12';
     $pane = new stdClass();
     $pane->pid = 'new-13';
-    $pane->panel = 'middle';
+    $pane->panel = 'column2';
     $pane->type = 'node_title';
     $pane->subtype = 'node_title';
     $pane->shown = TRUE;
@@ -484,13 +486,13 @@ function restaurant_blog_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $display->content['new-13'] = $pane;
-    $display->panels['middle'][1] = 'new-13';
+    $display->panels['column2'][0] = 'new-13';
     $pane = new stdClass();
     $pane->pid = 'new-14';
-    $pane->panel = 'middle';
+    $pane->panel = 'column2';
     $pane->type = 'node_created';
     $pane->subtype = 'node_created';
     $pane->shown = TRUE;
@@ -507,10 +509,10 @@ function restaurant_blog_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $display->content['new-14'] = $pane;
-    $display->panels['middle'][2] = 'new-14';
+    $display->panels['column2'][1] = 'new-14';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;

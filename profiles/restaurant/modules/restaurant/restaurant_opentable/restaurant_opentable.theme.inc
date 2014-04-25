@@ -28,6 +28,12 @@ function template_preprocess_restaurant_opentable_reservation_form(&$variables) 
   ));
   $variables['script_url'] = $script_url;
 
+
+  // Do not render widget when in preview.
+  if (drupal_match_path(current_path(), "panels/ajax/ipe/*")) {
+    $variables['script_url'] = '';
+  }
+
   // Add custom css.
   drupal_add_css(drupal_get_path('module', 'restaurant_opentable') . '/css/restaurant_opentable.css');
 }

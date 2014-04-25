@@ -343,7 +343,7 @@ function restaurant_pages_default_page_manager_handlers() {
     $pane->pid = 'new-7';
     $pane->panel = 'footer_col2';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:78';
+    $pane->subtype = 'fpid:2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -688,7 +688,7 @@ function restaurant_pages_default_page_manager_pages() {
     $display->panels['contentmain1_right'][3] = 'new-5';
     $pane = new stdClass();
     $pane->pid = 'new-6';
-    $pane->panel = 'contentmain3';
+    $pane->panel = 'contentmain4_left';
     $pane->type = 'views_panes';
     $pane->subtype = 'blog-featured_posts';
     $pane->shown = TRUE;
@@ -714,10 +714,10 @@ function restaurant_pages_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-6'] = $pane;
-    $display->panels['contentmain3'][0] = 'new-6';
+    $display->panels['contentmain4_left'][0] = 'new-6';
     $pane = new stdClass();
     $pane->pid = 'new-7';
-    $pane->panel = 'contentmain4_left';
+    $pane->panel = 'contentmain4_right';
     $pane->type = 'views_panes';
     $pane->subtype = 'events-featured_events';
     $pane->shown = TRUE;
@@ -734,12 +734,12 @@ function restaurant_pages_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-7'] = $pane;
-    $display->panels['contentmain4_left'][0] = 'new-7';
+    $display->panels['contentmain4_right'][0] = 'new-7';
     $pane = new stdClass();
     $pane->pid = 'new-8';
-    $pane->panel = 'contentmain4_right';
+    $pane->panel = 'header';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:80';
+    $pane->subtype = 'fpid:1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -749,64 +749,12 @@ function restaurant_pages_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'panel-primary',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-8'] = $pane;
-    $display->panels['contentmain4_right'][0] = 'new-8';
-    $pane = new stdClass();
-    $pane->pid = 'new-9';
-    $pane->panel = 'contentmain4_right';
-    $pane->type = 'social_widget';
-    $pane->subtype = 'social_widget';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'show_twitter' => 1,
-      'twitter_button_text' => 'Follow us on Twitter',
-      'show_facebook' => 1,
-      'facebook_button_text' => 'Like us on Facebook',
-      'show_google_plus' => 1,
-      'google_plus_button_text' => 'Follow us on Google+',
-      'show_yelp' => 1,
-      'yelp_button_text' => 'Find us on Yelp',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $display->content['new-9'] = $pane;
-    $display->panels['contentmain4_right'][1] = 'new-9';
-    $pane = new stdClass();
-    $pane->pid = 'new-10';
-    $pane->panel = 'header';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:68';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'Full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-10'] = $pane;
-    $display->panels['header'][0] = 'new-10';
+    $display->panels['header'][0] = 'new-8';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

@@ -98,7 +98,6 @@ class RestaurantLocationMigrateLocationMigration extends Migration {
       foreach ($menus as $menu_nid) {
         $menu = node_load($menu_nid);
         $menu->field_menu_locations[LANGUAGE_NONE][] = array('target_id' => $node->nid);
-        dpm($menu);
         node_save($menu);
       }
     }
