@@ -54,10 +54,10 @@ function restaurant_plugins_preprocess_html(&$variables) {
 }
 
 /**
- * template_preprocess_navbar().
+ * template_preprocess_site_navbar().
  * @ingroup themeable
  */
-function template_preprocess_navbar(&$variables) {
+function template_preprocess_site_navbar(&$variables) {
   // Get a link to the front page.
   $variables['front_page'] = url();
 

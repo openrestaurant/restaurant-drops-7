@@ -19,16 +19,19 @@ function restaurant_reservation_ctools_plugin_directory($module, $plugin) {
  */
 function restaurant_reservation_init() {
   // Display a message if there are new resevations.
-  if (user_access('administer reservation') && panopoly_config_get('reservation_show_notifications')) {
-    $pending_reservations = restaurant_reservation_get_reservations_for_status('pending');
-    if ($count = count($pending_reservations)) {
-      $message = t('There @are <strong>@count</strong> pending @reservations. !link to administer reservations.', array(
-        '@are' => format_plural($count, t('is'), t('are')),
-        '@reservations' => format_plural($count, t('reservation'), t('reservations')),
-        '@count' => $count,
-        '!link' => l(t('Click here'), 'admin/reservations/manage/pending'),
-      ));
-      drupal_set_message($message, 'warning', FALSE);
+  $notification_paths = implode("\n", _restaurant_reservation_get_notification_paths());
+  if (drupal_match_path(current_path(), $notification_paths)) {
+    if (user_access('administer reservation') && panopoly_config_get('reservation_show_notifications')) {
+      $pending_reservations = restaurant_reservation_get_reservations_for_status('pending');
+      if ($count = count($pending_reservations)) {
+        $message = t('There @are <strong>@count</strong> pending @reservations. !link to administer reservations.', array(
+          '@are' => format_plural($count, t('is'), t('are')),
+          '@reservations' => format_plural($count, t('reservation'), t('reservations')),
+          '@count' => $count,
+          '!link' => l(t('Click here'), 'admin/reservations/manage/pending'),
+        ));
+        drupal_set_message($message, 'warning', FALSE);
+      }
     }
   }
 
@@ -396,4 +399,13 @@ function _restaurant_reservation_number_exists($reservation_number) {
     ->fetchField();
 
   return (!empty($reservation_number)) ? TRUE : FALSE;
+}
+
+/**
+ * Returns path for showing reservation notifications.
+ */
+function _restaurant_reservation_get_notification_paths() {
+  return array(
+    'admin/*'
+  );
 }

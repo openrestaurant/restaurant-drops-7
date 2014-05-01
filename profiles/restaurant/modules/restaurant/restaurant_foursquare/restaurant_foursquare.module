@@ -1,0 +1,138 @@
+<?php
+/**
+ * @file
+ * Foursquare integration for the Restaurant Distribution.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */ 
+function restaurant_foursquare_ctools_plugin_directory($module, $plugin) {
+  return 'plugins/' . $plugin;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function restaurant_foursquare_theme() {
+  return array(
+    'foursquare_widget' => array(
+      'variables' => array('data' => NULL, 'show' => TRUE),
+      'template' => 'templates/foursquare-widget',
+      'file' => 'restaurant_foursquare.theme.inc',
+    ),
+    'foursquare_tips' => array(
+      'variables' => array('tips' => NULL),
+      'template' => 'templates/foursquare-tips',
+      'file' => 'restaurant_foursquare.theme.inc',
+    ),
+    'foursquare_tip' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/foursquare-tip',
+      'file' => 'restaurant_foursquare.theme.inc',
+    ),
+  );
+}
+
+/**
+ * Implements hook_panopoly_config_info().
+ */
+function restaurant_foursquare_panopoly_config_info() {
+  $info = array();
+
+  $info['foursquare'] = array(
+    'title' => t('Foursquare'),
+    'description' => t('Foursquare configuration'),
+    'weight' => 50,
+    'config' => array(
+      'foursquare_client_id' => array(
+        'title' => t('Client ID'),
+        'type' => 'string',
+        'required' => TRUE,
+      ),
+      'foursquare_client_secret' => array(
+        'title' => t('Client secret'),
+        'type' => 'string',
+        'required' => TRUE,
+      ),
+      'foursquare_venue_id' => array(
+        'title' => t('Venue ID'),
+        'description' => t('The venue id for your restaurant.'),
+        'type' => 'string',
+        'required' => TRUE,
+      ),
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function restaurant_foursquare_libraries_info() {
+  $libraries = array();
+
+  $libraries['foursquare'] = array(
+    'name' => 'Foursquare',
+    'vender url' => 'https://github.com/hownowstephen/php-foursquare',
+    'download url' => 'https://github.com/hownowstephen/php-foursquare',
+    'path' => 'src',
+    'version arguments' => array(
+      'file' => 'src/FoursquareAPI.class.php',
+      'pattern' => '@version\s+([0-9a-zA-Z\.-]+)@',
+      'lines' => 8,
+    ),
+    'files' => array(
+      'php' => array('FoursquareAPI.class.php'),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Creates an instance of the Foursquare PHP API.
+ *
+ * @return
+ *   The instance of the Foursquare API.
+ */
+function foursquare_api() {
+  if (module_exists('libraries') && ($library = libraries_load('foursquare')) && !empty($library['loaded'])) {
+    try {
+      $foursquare = new FoursquareAPI(panopoly_config_get('foursquare_client_id', ''), panopoly_config_get('foursquare_client_secret', ''));
+    }
+    catch (Exception $exception) {
+      drupal_set_message(t('There was an error loading the Foursquare PHP API. Please check your API client id and secret and try again.'), 'error');
+      watchdog('foursquare', 'Error loading the Foursquare PHP API. Check your API client id and secret.', array(), WATCHDOG_ERROR, 'admin/config/restaurant/foursquare');
+      return FALSE;
+    }
+    return $foursquare;
+  }
+  return FALSE;
+}
+
+/**
+ * Returns info about a venue.
+ *
+ * @param $venue_id
+ *  The id of the Foursquare venue.
+ */
+function foursquare_api_get_venue_info($venue_id) {
+  $cid = 'foursquare_venue_data_' . $venue_id;
+  $foursquare = foursquare_api();
+
+  if ($cache = cache_get($cid)) {
+    return $cache->data;
+  }
+  else {
+    $endpoint = 'venues/' . $venue_id;
+    $params = array("VENUE_ID" => $venue_id);
+    $data = json_decode($foursquare->GetPublic($endpoint, $params));
+
+    // Save to cache.
+    cache_set($cid, $data);
+
+    return $data;
+  }
+}

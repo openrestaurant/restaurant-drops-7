@@ -1,0 +1,212 @@
+/**
+ * Style for Foursquare.
+ */
+.foursquare {
+  background-color: #1DB0EC;
+  color: white;
+  margin-bottom: 18px;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+/**
+ * Check ins Widget.
+ */
+.foursquare-check-ins {
+  text-align: center;
+  padding: 70px 30px 30px;
+  background-image: url("../images/logo-foursquare-white.png");
+  background-repeat: no-repeat;
+  background-position: center 20px;
+}
+.foursquare-check-ins span {
+  display: block;
+}
+.foursquare-check-ins .count {
+  font-size: 60px;
+  line-height: 100%;
+}
+.foursquare-check-ins .text {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/**
+ * Widget.
+ */
+.foursquare-widget {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.foursquare-widget .widget-top {
+  background-color: #1DB0EC;
+  padding: 60px 30px 0px;
+  background-image: url("../images/logo-foursquare-white.png");
+  background-repeat: no-repeat;
+  background-position: center 20px;
+  color: white;
+}
+.foursquare-widget.with-body .widget-top {
+  padding-bottom: 30px;
+}
+.foursquare-widget .widget-body {
+  background: white;
+  border: 1px solid #f5f3f1;
+}
+.foursquare-widget .widget-bottom {
+  background-color: #1DB0EC;
+  border: 1px solid #1DB0EC;
+  padding: 20px 30px;
+  text-align: center;
+}
+.foursquare-widget.with-body .widget-bottom {
+  padding: 8px;
+  background-color: #f5f3f1;
+  border: 1px solid #f5f3f1;
+}
+.foursquare-widget .widget-bottom a {
+  width: 85%;
+  height: auto;
+  display: inline-block;
+}
+.foursquare-widget .bar {
+  border-width: 0;
+  border-color: #e8e8e8;
+  border-style: solid;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 18px;
+}
+.foursquare-widget .bar .item {
+  border-width: 0;
+  border-color: #e8e8e8;
+  border-style: solid;
+  display: inline-block;
+  padding: 5px 8px;
+  text-align: center;
+}
+.foursquare-widget .bar .rating {
+  background: #69bf13;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+.foursquare-widget .bar .item span {
+  display: block;
+}
+.foursquare-widget .bar .item .data {
+  font-size: 16px;
+  line-height: 100%;
+}
+.foursquare-widget .bar .item .text {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.foursquare-widget.bar-size-1 .bar .item .data {
+  font-size: 50px;
+  line-height: 100%;
+}
+.foursquare-widget.bar-size-1 .bar .item .text {
+  font-size: 10px;
+}
+.foursquare-widget.bar-size-2 .bar .item .data {
+  font-size: 16px;
+  line-height: 100%;
+}
+.foursquare-widget.bar-size-2 .bar .item .text {
+  font-size: 10px;
+}
+
+/**
+ * Tips.
+ */
+.foursquare-tips {
+  max-height: 350px;
+  overflow: auto;
+}
+.foursquare-tips ul.tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.foursquare-tips ul.tips li.tip {
+  border-bottom: 1px solid #f5f3f1;
+  margin: 0;
+  padding: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.foursquare-tips ul.tips li.tip:last-child {
+  margin-bottom: 0;
+}
+.foursquare-tips ul.tips li.tip p {
+  margin: 0;
+}
+.foursquare-tips ul.tips li.tip .authorImage,.foursquare-tips ul.tips li.tip .tipContents {
+  display: inline-block;
+  vertical-align: top;
+}
+.foursquare-tips ul.tips li.tip .authorImage {
+  margin-right: 10px;
+}
+.foursquare-tips ul.tips li.tip .authorImage .avatar {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.foursquare-tips ul.tips li.tip .tipPhoto {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: rgba(0,0,0,0.25) 0 1px 3px 0;
+  -webkit-box-shadow: rgba(0,0,0,0.25) 0 1px 3px 0;
+  box-shadow: rgba(0,0,0,0.25) 0 1px 3px 0;
+  cursor: pointer;
+  float: right;
+}
+.foursquare-tips ul.tips li.tip .tipContents {
+  max-width: 80%;
+}
+.foursquare-tips ul.tips li.tip .tipContents.hasPhoto {
+  max-width: 80%;
+}
+.foursquare-tips ul.tips li.tip .tipInfo {
+  color: #999;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+.foursquare-tips ul.tips li.tip .tipInfo .userName a,.foursquare-tips ul.tips li.tip .tipInfo .tipList a {
+  color: #999;
+}
+.foursquare-tips ul.tips li.tip .tipInfo .tipDate {
+  color: #2398c9;
+  cursor: pointer;
+  text-decoration: none;
+  color: #999;
+}
+.foursquare-tips ul.tips li.tip .tipInfo .tipDate:hover {
+  text-decoration: underline;
+}
+.foursquare-tips ul.tips li.noTips {
+  padding-bottom: 15px;
+}
+.foursquare-tips ul.tips span.entity {
+  font-weight: 700;
+}
+
+/**
+ * Buttons
+ */
+.foursquare-btn-check-in-white {
+  width: 100%;
+  height: auto;
+}

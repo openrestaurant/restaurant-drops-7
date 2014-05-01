@@ -24,9 +24,9 @@ function restaurant_plugins_theme() {
       'template' => 'templates/contact-info-pane',
       'file' => 'restaurant_plugins.theme.inc',
     ),
-    'navbar' => array(
+    'site_navbar' => array(
       'variables' => array('style' => NULL, 'position' => NULL, 'width' => NULL),
-      'template' => 'templates/navbar',
+      'template' => 'templates/site-navbar',
       'file' => 'restaurant_plugins.theme.inc',
     ),
     'page_header' => array(

@@ -380,16 +380,16 @@ function restaurant_pages_default_page_manager_handlers() {
     $pane = new stdClass();
     $pane->pid = 'new-9';
     $pane->panel = 'navigation';
-    $pane->type = 'navbar';
-    $pane->subtype = 'navbar';
+    $pane->type = 'site_navbar';
+    $pane->subtype = 'site_navbar';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'navbar_style' => 'navbar-inverse',
+      'site_navbar_style' => 'navbar-inverse',
       'override_title' => 0,
       'override_title_text' => '',
-      'navbar_position' => 'default',
-      'navbar_width' => 'fixed',
+      'site_navbar_position' => 'default',
+      'site_navbar_width' => 'fixed',
     );
     $pane->cache = array();
     $pane->style = array(

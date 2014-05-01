@@ -1,0 +1,23 @@
+/**
+ * CSS files for Radix Admin.
+ */
+.drupal-navbar .navbar-icon:before {
+  display: none; /* No icons*/
+}
+.drupal-navbar .navbar-bar .navbar-icon {
+  background: none;
+  padding: 1em 1.3333em;
+}
+.drupal-navbar .fa {
+  font-size: 1.3333em;
+  margin-right: 8px;
+}
+.drupal-navbar .navbar-tray .menu li a {
+  padding: 15px 25px;
+}
+.drupal-navbar .navbar-icon.navbar-handle {
+  text-indent: 0 !important;
+}
+.drupal-navbar .navbar-icon.navbar-handle {
+  outline: none;
+}

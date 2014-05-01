@@ -3,36 +3,36 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.4
+projects[panopoly_core][version] = 1.5
 projects[panopoly_core][subdir] = panopoly
 
-projects[panopoly_images][version] = 1.4
+projects[panopoly_images][version] = 1.5
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.4
+projects[panopoly_theme][version] = 1.5
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.4
+projects[panopoly_magic][version] = 1.5
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.4
+projects[panopoly_widgets][version] = 1.5
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.4
+projects[panopoly_admin][version] = 1.5
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.4
+projects[panopoly_users][version] = 1.5
 projects[panopoly_users][subdir] = panopoly
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.4
+projects[panopoly_pages][version] = 1.5
 projects[panopoly_pages][subdir] = panopoly
 
-projects[panopoly_wysiwyg][version] = 1.4
+projects[panopoly_wysiwyg][version] = 1.5
 projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.4
+; projects[panopoly_search][version] = 1.5
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
@@ -60,6 +60,13 @@ projects[radix_core][download][branch] = 7.x-3.x
 projects[radix_core][subdir] = contrib
 projects[radix_core][download][url] = "http://git.drupal.org/project/radix_core.git"
 
+projects[unary][type] = module
+projects[unary][download][type] = git
+projects[unary][download][revision] = ea9e86f
+projects[unary][download][branch] = 7.x-3.x
+projects[unary][subdir] = contrib
+projects[unary][download][url] = "http://git.drupal.org/project/unary.git"
+
 ; Restaurant
 
 projects[restaurant_base][type] = module
@@ -71,7 +78,7 @@ projects[restaurant_base][download][url] = "http://git.drupal.org/project/restau
 
 projects[restaurant_theme][type] = module
 projects[restaurant_theme][download][type] = git
-projects[restaurant_theme][download][revision] = d488030
+projects[restaurant_theme][download][revision] = 5a07f5c
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 projects[restaurant_theme][download][url] = "http://git.drupal.org/project/restaurant_theme.git"
@@ -92,7 +99,7 @@ projects[restaurant_widgets][download][url] = "http://git.drupal.org/project/res
 
 projects[restaurant_plugins][type] = module
 projects[restaurant_plugins][download][type] = git
-projects[restaurant_plugins][download][revision] = 7db5816
+projects[restaurant_plugins][download][revision] = 2c87e0b
 projects[restaurant_plugins][download][branch] = 7.x-1.x
 projects[restaurant_plugins][subdir] = restaurant
 projects[restaurant_plugins][download][url] = "http://git.drupal.org/project/restaurant_plugins.git"
@@ -143,7 +150,7 @@ projects[restaurant_slideshow][download][url] = "http://git.drupal.org/project/r
 
 projects[restaurant_pages][type] = module
 projects[restaurant_pages][download][type] = git
-projects[restaurant_pages][download][revision] = 94c3fc5
+projects[restaurant_pages][download][revision] = 25b63e2
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][url] = "http://git.drupal.org/project/restaurant_pages.git"
@@ -157,7 +164,7 @@ projects[restaurant_demo][download][url] = "http://git.drupal.org/project/restau
 
 projects[restaurant_reservation][type] = module
 projects[restaurant_reservation][download][type] = git
-projects[restaurant_reservation][download][revision] = eb0cc79
+projects[restaurant_reservation][download][revision] = d201487
 projects[restaurant_reservation][download][branch] = 7.x-1.x
 projects[restaurant_reservation][subdir] = restaurant
 projects[restaurant_reservation][download][url] = "http://git.drupal.org/project/restaurant_reservation.git"

@@ -1,13 +1,3 @@
 name = Radix Admin
 description = Provides administration enhancements, based on Radix theme
 core = 7.x
-
-stylesheets[all][] = assets/stylesheets/radix-admin.css
-scripts[] = assets/javascripts/radix-admin.js
-
-; Information added by drush on 2014-04-26
-version = "7.x-1.x-dev"
-core = "7.x"
-project = "radix_admin"
-datestamp = "1398549624"
-
