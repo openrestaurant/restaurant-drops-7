@@ -5,20 +5,20 @@
  */
 
 /**
- * Implements template_preprocess().
+ * Implements template_preprocess_views_view().
  */
-function radix_preprocess_views_view(&$variables) {
-  $view = $variables['view'];
-
-  // Add a .row class to wrap .views-row.
-  $variables['view_content_class'] = 'view-content';
-  if ($view->style_plugin->plugin_name != 'list') {
-    $variables['view_content_class'] .= ' row';
-  }
-}
+//function radix_preprocess_views_view(&$variables) {
+//  $view = $variables['view'];
+//
+//  // Add a .row class to wrap .views-row.
+//  $variables['view_content_class'] = 'view-content';
+//  if ($view->style_plugin->plugin_name != 'list') {
+//    $variables['view_content_class'] .= ' row';
+//  }
+//}
 
 /**
- * Implements theme_views_mini_pager().
+ * Implements template_preprocess_views_view_table().
  */
 function radix_preprocess_views_view_table(&$variables) {
   // Add Bootstrap table classes.
@@ -28,6 +28,18 @@ function radix_preprocess_views_view_table(&$variables) {
     'table-bordered',
   ));
 }
+
+/**
+ * Implements template_preprocess_views_view_unformatted().
+ */
+//function radix_preprocess_views_view_unformatted(&$variables) {
+//  // Add col-md-12 class to views-row is a col class is not provided.
+//  foreach ($variables['classes_array'] as &$classes) {
+//    if (!preg_match("/col\-[xs|sm|md|lg]*\-[0-9]{1,2}/", $classes)) {
+//      $classes .= ' col-md-12';
+//    }
+//  }
+//}
 
 /**
  * Implements theme_views_mini_pager().

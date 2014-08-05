@@ -1,6 +1,12 @@
 <?php
 /**
  * @file
+ * Code for the Panopoly SEO feature.
+ */
+
+include_once 'panopoly_seo.features.inc';
+/**
+ * @file
  */
 
 /**
@@ -14,4 +20,13 @@ function panopoly_seo_field_extra_fields_alter(&$info) {
       $info['node'][$bundle->type]['form']['metatags']['weight'] = 100;
     }
   }
+}
+
+/**
+ * Implements hook_apps_app_info().
+ */
+function panopoly_seo_apps_app_info() {
+  return array(
+    'demo content description' => 'Add SEO power to your Panopoly site!',
+  );
 }

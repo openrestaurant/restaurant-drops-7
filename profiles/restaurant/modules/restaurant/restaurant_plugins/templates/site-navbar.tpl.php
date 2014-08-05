@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -20,18 +21,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="<?php print $front_page; ?>" id="logo" class="navbar-brand">
-          <?php print $site_name; ?>
-        </a>
+        <?php if (!empty($front_page) || !empty($site_name)): ?>
+          <a href="<?php print $front_page; ?>" id="logo" class="navbar-brand">
+            <?php print $site_name; ?>
+          </a>
+        <?php endif; ?>
       </div> <!-- /.navbar-header -->
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <?php if ($main_menu): ?>
+        <?php if (!empty($main_menu)): ?>
           <?php print render($main_menu); ?>
         <?php endif; ?>
 
-        <?php if ($reservation_link): ?>
+        <?php if (!empty($reservation_link)): ?>
           <div class="navbar-right">
             <?php print $reservation_link; ?>
           </div>

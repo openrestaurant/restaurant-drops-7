@@ -86,7 +86,7 @@ function restaurant_event_menu_local_tasks_alter(&$data, $router_item, $root_pat
  */
 function restaurant_event_permission() {
   return array(
-    'administer menus' => array(
+    'administer events' => array(
       'title' => t('Administer events'),
       'description' => t('Access the event admininstration pages and manage events.'),
     ),

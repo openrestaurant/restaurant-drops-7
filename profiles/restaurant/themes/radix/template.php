@@ -29,6 +29,22 @@ function radix_preprocess_html(&$variables) {
     ),
   );
   drupal_add_html_head($element, 'bootstrap_responsive');
+
+  // Add some custom classes for panels pages.
+  if (module_exists('page_manager') && count(page_manager_get_current_page())) {
+    $variables['is_panel'] = TRUE;
+
+    // Get the current panel display and add some classes to body.
+    if ($display = panels_get_current_page_display()) {
+      $variables['classes_array'][] = 'panel-layout-' . $display->layout;
+
+      // Add a custom class for each region that has content.
+      $regions = array_keys($display->panels);
+      foreach ($regions as $region) {
+        $variables['classes_array'][] = 'panel-region-' . $region;
+      }
+    }
+  }
 }
 
 /**
@@ -91,8 +107,11 @@ function radix_preprocess_page(&$variables) {
     drupal_add_js($base['scheme'] . '://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', 'external');
   }
 
-  // Add CSS for Font Awesome
-  // drupal_add_css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', 'external');
+  // Add support for the Modenizr module.
+  // Load modernizr.js only if modernizr module is not present.
+  if (!module_exists('modernizr')) {
+    drupal_add_js(drupal_get_path('theme', 'radix') . '/assets/javascripts/modernizr.js');
+  }
 
   // Determine if the page is rendered using panels.
   $variables['is_panel'] = FALSE;
@@ -107,7 +126,7 @@ function radix_preprocess_page(&$variables) {
 
   // Theme action links as buttons.
   foreach ($variables['action_links'] as $key => &$link) {
-    $link['#link']['localized_options']['attributes'] = array('class' => array('btn', 'btn-primary', 'btn-sm'));
+    $link['#link']['localized_options']['attributes'] = array('class' => array('btn', 'btn-primary'));
   }
 
   // Add search_form to theme.
@@ -127,17 +146,13 @@ function radix_preprocess_page(&$variables) {
 
   // Format and add main menu to theme.
   $variables['main_menu'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
-  $variables['main_menu']['#theme_wrappers'] = array('menu_tree__navbar_nav');
-
-  // Format and add user menu to theme.
-  $variables['user_menu'] = menu_tree('user-menu');
-  $variables['user_menu']['#theme_wrappers'] = array('menu_tree__navbar_right');
+  $variables['main_menu']['#theme_wrappers'] = array();
 
   // Add a copyright message.
   $variables['copyright'] = t('Drupal is a registered trademark of Dries Buytaert.');
 
   // Display a message if Sass has not been compiled.
-  $theme_path = drupal_get_path('theme',$GLOBALS['theme']);
+  $theme_path = drupal_get_path('theme', $GLOBALS['theme']);
   $stylesheet_path = $theme_path . '/assets/stylesheets/screen.css';
   if (_radix_current_theme() == 'radix') {
     $stylesheet_path = $theme_path . '/assets/stylesheets/radix-style.css';

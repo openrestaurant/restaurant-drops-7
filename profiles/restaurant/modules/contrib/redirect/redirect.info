@@ -14,11 +14,3 @@ files[] = views/redirect_handler_field_redirect_operations.inc
 files[] = views/redirect_handler_field_redirect_link_edit.inc
 files[] = views/redirect_handler_field_redirect_link_delete.inc
 configure = admin/config/search/redirect/settings
-
-
-; Information added by drush on 2014-04-30
-version = "7.x-1.0-rc1+6-dev"
-core = "7.x"
-project = "redirect"
-datestamp = "1398894837"
-

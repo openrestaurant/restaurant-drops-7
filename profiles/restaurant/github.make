@@ -5,36 +5,36 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.5
+projects[panopoly_core][version] = 1.8
 projects[panopoly_core][subdir] = panopoly
 
-projects[panopoly_images][version] = 1.5
+projects[panopoly_images][version] = 1.8
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.5
+projects[panopoly_theme][version] = 1.8
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.5
+projects[panopoly_magic][version] = 1.8
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.5
+projects[panopoly_widgets][version] = 1.8
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.5
+projects[panopoly_admin][version] = 1.8
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.5
+projects[panopoly_users][version] = 1.8
 projects[panopoly_users][subdir] = panopoly
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.5
+projects[panopoly_pages][version] = 1.8
 projects[panopoly_pages][subdir] = panopoly
 
-projects[panopoly_wysiwyg][version] = 1.5
+projects[panopoly_wysiwyg][version] = 1.8
 projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.5
+; projects[panopoly_search][version] = 1.8
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
@@ -62,18 +62,11 @@ projects[radix_core][download][branch] = 7.x-3.x
 projects[radix_core][subdir] = contrib
 projects[radix_core][download][url] = "https://github.com/arshad/radix_core.git"
 
-projects[unary][type] = module
-projects[unary][download][type] = git
-projects[unary][download][revision] = ea9e86f
-projects[unary][download][branch] = 7.x-3.x
-projects[unary][subdir] = contrib
-projects[unary][download][url] = "https://github.com/arshad/unary.git"
-
 ; Restaurant
 
 projects[restaurant_base][type] = module
 projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][revision] = 2d68aef
+projects[restaurant_base][download][revision] = 4fe624d
 projects[restaurant_base][download][branch] = 7.x-1.x
 projects[restaurant_base][subdir] = restaurant
 projects[restaurant_base][download][url] = "https://github.com/arshad/restaurant_base.git"
@@ -187,7 +180,7 @@ projects[restaurant_location][download][url] = "https://github.com/arshad/restau
 
 projects[restaurant_opentable][type] = module
 projects[restaurant_opentable][download][type] = git
-projects[restaurant_opentable][download][revision] = ef77ec1
+projects[restaurant_opentable][download][revision] = f190175
 projects[restaurant_opentable][download][branch] = 7.x-1.x
 projects[restaurant_opentable][subdir] = restaurant
-projects[restaurant_location][download][url] = "https://github.com/arshad/restaurant_opentable.git"
+projects[restaurant_opentable][download][url] = "https://github.com/arshad/restaurant_opentable.git"

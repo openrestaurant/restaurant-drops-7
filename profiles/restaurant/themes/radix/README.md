@@ -4,7 +4,7 @@ Radix is a base theme for [Panopoly](http://drupal.org/project/panopoly). It has
 
 * Project Page:   http://drupal.org/project/radix
 * Documentation:  https://drupal.org/node/1840310
-* Demo:           http://dev-radix.gotpantheon.com
+* Demo:           http://dev-radix.chapterthree.com
 * Issue Queue:    http://drupal.org/project/issues/radix
 
 ## Maintainer(s): 
@@ -16,7 +16,7 @@ Radix is a base theme for [Panopoly](http://drupal.org/project/panopoly). It has
 
 1. Install the required gems:
 
-        sudo gem install compass_radix -v 2
+        sudo gem install compass_radix
 
   This should install all required gems for Radix.
 
@@ -35,7 +35,7 @@ Radix is a base theme for [Panopoly](http://drupal.org/project/panopoly). It has
         --bootswatch                              The Bootswatch theme to use. See https://github.com/arshad/radix-bootswatch.
         --description                             The description of your subtheme.
         --destination                             The destination of your subtheme. Defaults to "all" (sites/all/themes).
-        --kit                                     The name of the starter kit to use. Defaults to "default".
+        --kit                                     The name or url of the starter kit to use. Defaults to "default".
         --machine_name                            The machine-readable name of your subtheme. Auto-generated if ommited.
 
 4. To start making changes to your theme, using a command line cd to your subtheme directory and run:

@@ -3,5 +3,5 @@ api  = 2
 
 ; Dependencies
 
-projects[addressfield][version] = 1.0-beta3
+projects[addressfield][version] = 1.0-beta5
 projects[addressfield][subdir] = contrib

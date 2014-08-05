@@ -6,7 +6,7 @@
 
 /**
  * Implements hook_ctools_plugin_directory().
- */ 
+ */
 function restaurant_opentable_ctools_plugin_directory($module, $plugin) {
   return 'plugins/' . $plugin;
 }
@@ -154,19 +154,19 @@ function _restaurant_opentable_get_url() {
  */
 function restaurant_opentable_get_simple_html_dom_path() {
   $path = FALSE;
-  
-  
-  // if (function_exists('libraries_get_path')) {
-  //   $path = libraries_get_path('simple_html_dom');
-  //   if ($path && file_exists($path . '/simple_html_dom.php')) {
-  //     return $path . '/simple_html_dom.php';
-  //   }
-  // }
-  
+
+
+   if (function_exists('libraries_get_path')) {
+     $path = libraries_get_path('simplehtmldom');
+     if ($path && file_exists($path . '/simple_html_dom.php')) {
+       return $path . '/simple_html_dom.php';
+     }
+   }
+
   // Get path to simple_html_dom.
   $path = drupal_get_path('module', 'restaurant_base');
-  if ($path && file_exists($path . '/libraries/simple_html_dom.php')) {
-    return $path . '/libraries/simple_html_dom.php';
+  if ($path && file_exists($path . '/libraries/simplehtmldom/simple_html_dom.php')) {
+    return $path . '/libraries/simplehtmldom/simple_html_dom.php';
   }
 
   return $path;

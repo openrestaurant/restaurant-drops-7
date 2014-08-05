@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Dashboard feature.
+ */
+
+include_once 'restaurant_dashboard.features.inc';

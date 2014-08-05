@@ -54,7 +54,7 @@ function restaurant_plugins_preprocess_html(&$variables) {
 }
 
 /**
- * template_preprocess_site_navbar().
+ * Implements template_preprocess_site_navbar().
  * @ingroup themeable
  */
 function template_preprocess_site_navbar(&$variables) {

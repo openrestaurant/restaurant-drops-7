@@ -37,22 +37,18 @@ function addressfield_feeds_processor_targets_alter(&$targets, $entity_type, $bu
  * @param $value
  *   The value to populate the target with.
  */
-function addressfield_set_target($source, $entity, $target, $values) {
+function addressfield_set_target($source, $entity, $target, $value) {
   list($field_name, $sub_field) = explode(':', $target, 2);
 
-  // Convert the values into an array if it isn't one already to correspond to
-  // Drupal's handling of field value arrays.
-  if (!is_array($values)) {
-    $values = array($values);
+  // Handle non-multiple value fields.
+  if (!is_array($value)) {
+    $value = array($value);
   }
 
-  // If the field is already set on the given entity, update the existing value
-  // array. Otherwise start with a fresh field value array.
   $field = isset($entity->$field_name) ? $entity->$field_name : array();
 
-  // Loop over the field values array...
-  foreach ($values as $delta => $value) {
-    $field[LANGUAGE_NONE][$delta][$sub_field] = $value;
+  foreach ($value as $i => $v) {
+    $field['und'][$i][$sub_field] = $v;
   }
 
   $entity->$field_name = $field;

@@ -1,3 +1,6 @@
 name = Radix Admin
 description = Provides administration enhancements, based on Radix theme
 core = 7.x
+
+stylesheets[all][] = assets/stylesheets/radix-admin.css
+scripts[] = assets/javascripts/radix-admin.js

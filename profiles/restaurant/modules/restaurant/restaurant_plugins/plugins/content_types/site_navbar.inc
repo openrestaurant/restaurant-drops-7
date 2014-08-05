@@ -36,11 +36,11 @@ function restaurant_plugins_site_navbar_content_type_edit_form($form, &$form_sta
     '#title' => t('Style'),
     '#type' => 'radios',
     '#description' => t('The site_navbar style.'),
-    '#default_value' => !empty($conf['site_navbar_style']) ? $conf['site_navbar_style'] : 'site_navbar-default',
+    '#default_value' => !empty($conf['site_navbar_style']) ? $conf['site_navbar_style'] : 'navbar-default',
     '#required' => TRUE,
     '#options' => array(
-      'site_navbar-default' => t('Default'),
-      'site_navbar-inverse' => t('Inverse'),
+      'navbar-default' => t('Default'),
+      'navbar-inverse' => t('Inverse'),
     ),
   );
 
@@ -52,9 +52,9 @@ function restaurant_plugins_site_navbar_content_type_edit_form($form, &$form_sta
     '#required' => TRUE,
     '#options' => array(
       'default' => t('Default'),
-      'site_navbar-fixed-top' => t('Fixed to top'),
-      'site_navbar-fixed-bottom' => t('Fixed to Bottom'),
-      'site_navbar-static-top' => t('Static top'),
+      'navbar-fixed-top' => t('Fixed to top'),
+      'navbar-fixed-bottom' => t('Fixed to Bottom'),
+      'navbar-static-top' => t('Static top'),
     ),
   );
 
