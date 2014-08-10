@@ -16,6 +16,7 @@ dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = panelizer
 dependencies[] = panopoly_pages
+dependencies[] = radix_views
 dependencies[] = restaurant_base
 dependencies[] = strongarm
 dependencies[] = taxonomy

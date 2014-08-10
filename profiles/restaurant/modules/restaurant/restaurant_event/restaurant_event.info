@@ -11,6 +11,7 @@ dependencies[] = list
 dependencies[] = media
 dependencies[] = panopoly_pages
 dependencies[] = pm_existing_pages
+dependencies[] = radix_views
 dependencies[] = restaurant_pages
 dependencies[] = semanticviews
 dependencies[] = views

@@ -24,7 +24,6 @@ features[defaultconfig][] = strongarm:restaurant_config_site_name
 features[defaultconfig][] = strongarm:restaurant_config_twitter
 features[defaultconfig][] = strongarm:restaurant_config_yelp
 features[features_api][] = api:2
-features[menu_custom][] = menu-footer-menu
 features[menu_links][] = menu-footer-menu_about:http://drupal.org/project/restaurant
 features[menu_links][] = menu-footer-menu_breakfast:menus
 features[menu_links][] = menu-footer-menu_contact:contact

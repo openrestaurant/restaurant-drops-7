@@ -9,6 +9,7 @@ dependencies[] = entityreference
 dependencies[] = media
 dependencies[] = options
 dependencies[] = panopoly_pages
+dependencies[] = radix_views
 dependencies[] = views_content
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = panelizer:panelizer:1

@@ -1,9 +1,0 @@
-name = Restaurant Yelp
-description = Yelp integration for the Restaurant Distribution
-core = 7.x
-package = Restaurant
-version = 7.x-1.0
-project = restaurant_yelp
-dependencies[] = panopoly_config
-dependencies[] = restaurant_base
-features[features_api][] = api:2

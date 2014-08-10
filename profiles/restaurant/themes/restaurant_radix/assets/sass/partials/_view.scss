@@ -16,6 +16,14 @@
       }
     }
   }
+  .view-content {
+    .views-row {
+      .container {
+        width: auto;
+        padding: 0;
+      }
+    }
+  }
   .view-footer {
     margin-top: 18px;
   }
@@ -44,6 +52,11 @@
     margin-bottom: 15px;
     padding-bottom: 15px;
   }
+}
+.calendar-calendar {
+  width: auto;
+  float: none;
+  padding: 0;
 }
 
 // Locations

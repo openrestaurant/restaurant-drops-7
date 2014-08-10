@@ -128,8 +128,7 @@ function restaurant_location_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-12';
+  $handler->display->display_options['style_plugin'] = 'radix_views_grid_plugin_style';
   $handler->display->display_options['row_plugin'] = 'panelizer_node_view';
   $handler->display->display_options['row_options']['render_anything'] = 0;
   /* Field: Content: Title */
@@ -220,7 +219,7 @@ function restaurant_location_views_default_views() {
   $handler->display->display_options['fields']['description']['element_type'] = 'p';
   $handler->display->display_options['fields']['description']['element_class'] = 'lead';
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
-  /* Field: Content: Rendered Node */
+  /* Field: Content: Rendered Content */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';

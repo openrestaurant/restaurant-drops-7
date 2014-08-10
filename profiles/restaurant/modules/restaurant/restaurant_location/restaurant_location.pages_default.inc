@@ -16,7 +16,10 @@ function restaurant_location_default_page_manager_pages() {
   $page->admin_title = 'Locations';
   $page->admin_description = '';
   $page->path = 'locations';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Locations',
@@ -64,10 +67,11 @@ function restaurant_location_default_page_manager_pages() {
   );
   $display->cache = array();
   $display->title = 'Locations';
+  $display->uuid = 'e7a4cb36-b630-4edd-95d6-d4d3b745c67b';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-320ec830-c48f-4c82-bbc5-8da98bd4cda6';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'locations-locations';
@@ -86,10 +90,11 @@ function restaurant_location_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1';
+    $pane->uuid = '320ec830-c48f-4c82-bbc5-8da98bd4cda6';
+    $display->content['new-320ec830-c48f-4c82-bbc5-8da98bd4cda6'] = $pane;
+    $display->panels['contentmain'][0] = 'new-320ec830-c48f-4c82-bbc5-8da98bd4cda6';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-320ec830-c48f-4c82-bbc5-8da98bd4cda6';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['locations'] = $page;

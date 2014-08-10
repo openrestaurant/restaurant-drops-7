@@ -26,6 +26,7 @@ features[defaultconfig][] = user_default_permissions:access user contact forms
 features[defaultconfig][] = user_default_permissions:administer contact forms
 features[features_api][] = api:2
 features[menu_custom][] = main-menu
+features[menu_custom][] = menu-footer-menu
 features[menu_links][] = main-menu_contact:contact
 features[page_manager_handlers][] = contact_site_panel_context
 features[page_manager_handlers][] = site_template_panel_context
