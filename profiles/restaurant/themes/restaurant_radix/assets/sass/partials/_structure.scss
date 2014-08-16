@@ -25,3 +25,12 @@
 .pane-page-messages {
   margin-bottom: 18px;
 }
+
+// Media modals
+// --------------------------------------------------
+.ui-dialog {
+  z-index: 2001 !important;
+}
+.ui-widget-overlay {
+  z-index: 2000 !important;
+}

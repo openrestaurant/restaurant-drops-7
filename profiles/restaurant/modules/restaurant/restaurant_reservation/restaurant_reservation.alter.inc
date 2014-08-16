@@ -23,6 +23,10 @@ function restaurant_reservation_form_reservation_node_form_alter(&$form, &$form_
 
     // Hide the status field.
     $form['field_reservation_status']['#access'] = FALSE;
+
+    // Remove some classes.
+    $node_form_class_key = array_search('node-form', $form['#attributes']['class']);
+    unset($form['#attributes']['class'][$node_form_class_key]);
   }
 }
 
