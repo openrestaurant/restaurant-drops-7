@@ -224,6 +224,9 @@ function restaurant_install_finished(&$install_state) {
 
   // Set the node admin theme.
   variable_set('node_admin_theme', 1);
+
+  // Enable clean urls.
+  variable_set('clean_url', 1);
  
   // Flush theme caches so things are right.
   system_rebuild_theme_data();
@@ -252,7 +255,7 @@ function restaurant_install_finished(&$install_state) {
   if (isset($messages['error'])) {
     $output = '<p class="lead">' . st('You have successfully installed the Restaurant Distribution.') . '</p>';
 //    $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
-    $output .= l(st('Go to site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
+    $output .= l(st('View site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
     return $output;
   }
   else {
@@ -312,8 +315,8 @@ function _restaurant_filter_dependencies($dependency) {
 function _restaurant_get_installation_types() {
   return array(
     'quick' => array(
-      'title' => st('Quick'),
-      'description' => st('Install using a set of predefined settings. (recommended)'),
+      'title' => st('Quick (recommended)'),
+      'description' => st('Install using a set of predefined settings.'),
     ),
     'standard' => array(
       'title' => st('Standard'),
@@ -335,4 +338,17 @@ function _restaurant_get_selected_installation_type() {
   }
 
   return $type;
+}
+
+/**
+ * Returns a list of demo modules.
+ */
+function _restaurant_get_demo_modules() {
+  return array(
+    'restaurant_blog_demo',
+    'restaurant_event_demo',
+    'restaurant_menu_demo',
+    'restaurant_location_demo',
+    'restaurant_reservation_demo',
+  );
 }
