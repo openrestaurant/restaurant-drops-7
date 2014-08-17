@@ -11977,35 +11977,23 @@ body.page-header-hidden .header {
   display: none;
 }
 
-/* line 23, ../sass/partials/_layout.scss */
-.top {
-  background-color: white;
-  color: #555555;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-/* line 29, ../sass/partials/_layout.scss */
+/* line 24, ../sass/partials/_layout.scss */
 body.page-top-hidden .top {
   display: none;
 }
 
-/* line 36, ../sass/partials/_layout.scss */
+/* line 31, ../sass/partials/_layout.scss */
 .main {
-  background-color: white;
-  color: #555555;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-/* line 40, ../sass/partials/_layout.scss */
+/* line 36, ../sass/partials/_layout.scss */
 body.page-is-panel .main {
   padding-top: 0;
 }
 
-/* line 52, ../sass/partials/_layout.scss */
+/* line 48, ../sass/partials/_layout.scss */
 .footer {
   background-color: #e7e7e7;
   color: #555555;
@@ -12015,7 +12003,7 @@ body.page-is-panel .main {
   padding-bottom: 60px;
 }
 
-/* line 60, ../sass/partials/_layout.scss */
+/* line 56, ../sass/partials/_layout.scss */
 .col-eh {
   margin-bottom: 30px;
 }
@@ -12066,14 +12054,10 @@ body.page-is-panel .main {
 /* line 21, ../sass/partials/_panel.scss */
 .layout-1col .panel-pane-region,
 .layout-2col .panel-pane-region {
-  background-color: white;
-  color: #555555;
-  padding-top: 20px;
-  padding-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/* line 26, ../sass/partials/_panel.scss */
+/* line 25, ../sass/partials/_panel.scss */
 .layout-1col .panel-pane-region-full-width,
 .layout-2col .panel-pane-region-full-width {
   background-color: #eeeeee;
@@ -12081,7 +12065,7 @@ body.page-is-panel .main {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/* line 30, ../sass/partials/_panel.scss */
+/* line 29, ../sass/partials/_panel.scss */
 .layout-1col .panel-pane-region-header,
 .layout-1col .panel-pane-region-empty,
 .layout-2col .panel-pane-region-header,
@@ -12090,12 +12074,12 @@ body.page-is-panel .main {
   padding-bottom: 0;
 }
 
-/* line 37, ../sass/partials/_panel.scss */
+/* line 36, ../sass/partials/_panel.scss */
 body.page-with-region-header .main {
   padding-top: 0;
 }
 
-/* line 43, ../sass/partials/_panel.scss */
+/* line 42, ../sass/partials/_panel.scss */
 .pane-event-categories-event-categories {
   clear: left;
 }

@@ -19,7 +19,6 @@
 .layout-1col,
 .layout-2col {
   .panel-pane-region {
-    @include section();
     padding-top: 20px;
     padding-bottom: 20px;
   }

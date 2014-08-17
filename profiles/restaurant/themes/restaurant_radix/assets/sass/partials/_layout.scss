@@ -20,11 +20,6 @@ body.page-header-hidden {
 
 // Top
 // --------------------------------------------------
-.top {
-  @include section();
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
 body.page-top-hidden {
   .top {
     display: none;
@@ -34,7 +29,8 @@ body.page-top-hidden {
 // Main
 // --------------------------------------------------
 .main {
-  @include section();
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 body.page-is-panel {
   .main {
