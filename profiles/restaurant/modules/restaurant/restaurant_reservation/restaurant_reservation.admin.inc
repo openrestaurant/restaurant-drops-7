@@ -29,10 +29,7 @@ function restaurant_reservation_calendar_admin() {
 }
 
 /**
- * Update status frm
- *
- * @param $reservation_id
- *  The id of the reservation.
+ * Update status form.
  */
 function restaurant_reservation_update_status_form($form, &$form_state, $reservation_id, $show_label = FALSE) {
   $reservation = $form_state['#reservation'] = node_load($reservation_id);
@@ -95,4 +92,17 @@ function restaurant_reservation_update_status_form_submit($form, &$form_state) {
       '@new' => $status,
     ), WATCHDOG_ERROR);
   }
+}
+
+/**
+ * Implementation of hook_forms()
+ */
+function restaurant_reservation_forms($form_id, $args) {
+  $forms = array();
+  if (strpos($form_id, 'restaurant_reservation_update_status_form') === 0) {
+    $forms[$form_id] = array(
+      'callback' => 'restaurant_reservation_update_status_form',
+    );
+  }
+  return $forms;
 }

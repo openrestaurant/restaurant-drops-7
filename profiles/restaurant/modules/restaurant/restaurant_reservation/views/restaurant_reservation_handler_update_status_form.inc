@@ -53,6 +53,6 @@ class restaurant_reservation_handler_update_status_form extends views_handler_fi
     module_load_include('inc', 'restaurant_reservation', 'restaurant_reservation.admin');
 
     // Return update status form.
-    return drupal_get_form('restaurant_reservation_update_status_form', $nid);
+    return drupal_get_form('restaurant_reservation_update_status_form_' . $nid, $nid);
   }
 }
