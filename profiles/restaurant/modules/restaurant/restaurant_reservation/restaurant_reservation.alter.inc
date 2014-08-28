@@ -56,7 +56,7 @@ function restaurant_reservation_form_reservation_node_form_submit($form, &$form_
   drupal_get_messages();
 
   // Show a custom message.
-  drupal_set_message(t('Thank you for your reservation. We will send you a confirmation email shortly.'));
+  drupal_set_message(panopoly_config_get('reservation_form_success_message', ''));
 
   // Redirect to the reservation page.
   $form_state['redirect'] = 'reservation';

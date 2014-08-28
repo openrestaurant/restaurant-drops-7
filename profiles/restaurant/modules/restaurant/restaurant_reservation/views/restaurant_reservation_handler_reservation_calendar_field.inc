@@ -65,6 +65,6 @@ class restaurant_reservation_handler_reservation_calendar_field extends views_ha
     $reservation_number = entity_metadata_wrapper('node', $node)->field_reservation_number->value();
     $persons = entity_metadata_wrapper('node', $node)->field_reservation_persons->value();
     $text = $reservation_number . ' (' . $persons . ')';
-    return l($text, 'admin/reservations/views/' . $node->nid);
+    return l($text, 'admin/reservations/view/' . $node->nid);
   }
 }

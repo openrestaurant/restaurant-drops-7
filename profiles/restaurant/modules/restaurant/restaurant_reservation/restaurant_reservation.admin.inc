@@ -93,16 +93,3 @@ function restaurant_reservation_update_status_form_submit($form, &$form_state) {
     ), WATCHDOG_ERROR);
   }
 }
-
-/**
- * Implementation of hook_forms()
- */
-function restaurant_reservation_forms($form_id, $args) {
-  $forms = array();
-  if (strpos($form_id, 'restaurant_reservation_update_status_form') === 0) {
-    $forms[$form_id] = array(
-      'callback' => 'restaurant_reservation_update_status_form',
-    );
-  }
-  return $forms;
-}

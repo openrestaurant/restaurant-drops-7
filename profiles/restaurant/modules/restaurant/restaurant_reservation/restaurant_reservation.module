@@ -132,6 +132,19 @@ function restaurant_reservation_view_mode_templates() {
 }
 
 /**
+ * Implementation of hook_forms()
+ */
+function restaurant_reservation_forms($form_id, $args) {
+  $forms = array();
+  if (strpos($form_id, 'restaurant_reservation_update_status_form') === 0) {
+    $forms[$form_id] = array(
+      'callback' => 'restaurant_reservation_update_status_form',
+    );
+  }
+  return $forms;
+}
+
+/**
  * Implements hook_node_update().
  */
 function restaurant_reservation_node_update($node) {
@@ -213,6 +226,13 @@ function restaurant_reservation_panopoly_config_info() {
     'type' => 'string',
     'require' => TRUE,
     'default' => 'RN',
+  );
+
+  $config['reservation_form_success_message'] = array(
+    'title' => t('Reservation form success message'),
+    'description' => t('Success message to display on the reservation form.'),
+    'type' => 'string',
+    'require' => TRUE,
   );
 
   $statuses = restaurant_reservation_get_statuses();

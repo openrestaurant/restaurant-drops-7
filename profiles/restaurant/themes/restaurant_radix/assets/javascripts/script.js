@@ -23,6 +23,15 @@
     $('body').imagesLoaded(function() {
       $('.row-eh, .col-eh').eh();
     });
+
+    $('.pane-menu-categories-menu-categories-jump-navigation').affix({
+      offset: {
+        top: 100,
+        bottom: function () {
+          return (this.bottom = $('.footer').outerHeight(true))
+        }
+      }
+    })
   });
 
   // Sets all el to equal height.

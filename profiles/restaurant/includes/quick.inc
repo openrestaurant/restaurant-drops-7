@@ -135,6 +135,7 @@ function _install_from_db_cc_all() {
  */
 function _install_from_db_install_db_import($line, $table, &$context) {
   global $conf;
+  global $install_state;
 
   if ($table === 'variable') {
     // save/restore some variables needed by installer or unique to new site
