@@ -3,8 +3,8 @@ description = Installation theme for the restaurant distribution.
 screenshot  = screenshot.png
 core        = 7.x
 
-; Base - Octal
-base theme  = octal
+; Base - Radix
+base theme  = radix
 
 ; Regions
 regions[content] = Content

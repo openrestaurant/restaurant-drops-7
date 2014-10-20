@@ -1,14 +1,11 @@
 <?php
-/**
- * @file
- * Code for the Restaurant Admin feature.
- */
 
-include_once 'restaurant_admin.features.inc';
 /**
  * @file
  * Provides administrative enhancements for the Restaurant Distribution
  */
+
+include_once 'restaurant_admin.features.inc';
 
 /**
  * Implements hook_menu_alter().
@@ -28,7 +25,7 @@ function restaurant_admin_menu_alter(&$items) {
  * Implementation of hook_link_alter()
  */
 function restaurant_admin_menu_link_alter(&$item) {
-  // Automatically set all of the settings elements to be children of the main parent element
+  // Automatically set all of the settings elements to be children of the main parent element.
   // @see panopoly_admin_menu_link_alter().
   if (isset($item['path']) && strpos($item['path'], 'panopoly/settings/')) {
     $parent_mlid = db_query("SELECT mlid FROM {menu_links} WHERE link_path = :path", array(':path' => 'admin/config/panopoly/settings'))->fetchField();
@@ -41,7 +38,6 @@ function restaurant_admin_menu_link_alter(&$item) {
  */
 function restaurant_admin_page_build(&$page) {
   $path = drupal_get_path('module', 'restaurant_admin');
-
   $page['page_bottom']['restaurant_admin'] = array(
     '#attached' => array(),
   );
@@ -76,4 +72,3 @@ function restaurant_admin_preprocess_panels_pane(&$variables) {
     }
   }
 }
-

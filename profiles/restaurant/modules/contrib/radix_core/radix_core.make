@@ -12,7 +12,7 @@ projects[radix][version] = 3.0-beta1
 
 projects[radix_layouts][type] = module
 projects[radix_layouts][download][type] = git
-projects[radix_layouts][download][branch] = 7.x-3.x
+projects[radix_layouts][version] = 3.0
 projects[radix_layouts][subdir] = contrib
 
 projects[radix_views][type] = module

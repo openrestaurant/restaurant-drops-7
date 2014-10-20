@@ -8,13 +8,6 @@
     <?php print $scripts; ?>
   </head>
   <body class="<?php print $classes; ?>">
-    
-  <div class="jumbotron">
-    <div class="container">
-      <h1><?php print t('Drupal Restaurant'); ?></h1>
-      <p class="lead"><?php print t('Everything you need to build Restaurant websites.'); ?></p>
-    </div>
-  </div>
 
   <div id="main-wrapper">
     <div id="main" class="main container">
@@ -26,18 +19,24 @@
         <?php endif ?>
         <div class="col-md-9">
           <?php if ($title): ?>
-            <div class="page-header clearfix">
-              <h1 class="pull-left"><?php print $title; ?></h1>
-              <?php if (isset($steps)): ?>
-                <h4 class="pull-right"><?php print $steps; ?></h4>
-              <?php endif; ?>
-            </div>
+            <h1 class="page-header"><?php print $title; ?></h1>
+            <?php if (isset($steps)): ?>
+              <p class="steps navbar-text"><?php print $steps; ?></p>
+            <?php endif; ?>
           <?php endif; ?>
           <?php print $content; ?>
         </div>
       </div>
     </div> <!-- /#main -->
   </div> <!-- /#main-wrapper -->
+
+  <footer id="footer" class="footer" role="footer">
+    <div class="container">
+      <?php if ($copyright): ?>
+        <p class="copyright text-center text-muted"><small><?php print $copyright; ?></small></p>
+      <?php endif; ?>
+    </div>
+  </footer>
 
   </body>
 </html>
