@@ -17,13 +17,12 @@ require_once dirname(__FILE__) . '/includes/view.inc';
  * Implements hook_css_alter().
  */
 function restaurant_octal_css_alter(&$css) {
-  $radix_path = drupal_get_path('theme', 'radix');
+  $octal_path = drupal_get_path('theme', 'octal');
 
-  // Radix now includes compiled stylesheets for demo purposes.
+  // Octal includes compiled stylesheets for demo purposes.
   // We remove these from our subtheme since they are already included 
   // in compass_radix.
-  unset($css[$radix_path . '/assets/stylesheets/radix-style.css']);
-  unset($css[$radix_path . '/assets/stylesheets/radix-print.css']);
+  unset($css[$octal_path . '/assets/stylesheets/octal-style.css']);
 }
 
 /**

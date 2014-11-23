@@ -3,36 +3,36 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.13
+projects[panopoly_core][version] = 1.14
 projects[panopoly_core][subdir] = panopoly
 
-projects[panopoly_images][version] = 1.13
+projects[panopoly_images][version] = 1.14
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.13
+projects[panopoly_theme][version] = 1.14
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.13
+projects[panopoly_magic][version] = 1.14
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.13
+projects[panopoly_widgets][version] = 1.14
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.13
+projects[panopoly_admin][version] = 1.14
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.13
+projects[panopoly_users][version] = 1.14
 projects[panopoly_users][subdir] = panopoly
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.13
+projects[panopoly_pages][version] = 1.14
 projects[panopoly_pages][subdir] = panopoly
 
-projects[panopoly_wysiwyg][version] = 1.13
+projects[panopoly_wysiwyg][version] = 1.14
 projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.13
+; projects[panopoly_search][version] = 1.14
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
@@ -123,7 +123,7 @@ projects[restaurant_blog][type] = module
 projects[restaurant_blog][subdir] = restaurant
 projects[restaurant_blog][download][type] = git
 projects[restaurant_blog][download][branch] = 7.x-1.x
-projects[restaurant_blog][download][revision] = 0e7cbd9
+projects[restaurant_blog][download][revision] = 99769fc
 
 projects[restaurant_event][version] = 1.x-dev
 projects[restaurant_event][type] = module
@@ -158,7 +158,7 @@ projects[restaurant_reservation][type] = module
 projects[restaurant_reservation][subdir] = restaurant
 projects[restaurant_reservation][download][type] = git
 projects[restaurant_reservation][download][branch] = 7.x-1.x
-projects[restaurant_reservation][download][revision] = 92a42ef
+projects[restaurant_reservation][download][revision] = 1693111
 
 projects[restaurant_seo][version] = 1.x-dev
 projects[restaurant_seo][type] = module

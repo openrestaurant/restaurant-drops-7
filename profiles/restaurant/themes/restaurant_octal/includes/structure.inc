@@ -14,7 +14,7 @@
  *
  * @ingroup themeable
  */
-function octal_task_list($variables) {
+function restaurant_octal_task_list($variables) {
   $items = $variables['items'];
   $active = $variables['active'];
 
