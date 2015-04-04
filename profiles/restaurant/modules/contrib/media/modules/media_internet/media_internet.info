@@ -10,3 +10,11 @@ files[] = includes/MediaInternetBaseHandler.inc
 files[] = includes/MediaInternetFileHandler.inc
 files[] = includes/MediaInternetNoHandlerException.inc
 files[] = includes/MediaInternetValidationException.inc
+
+
+; Information added by drush on 2015-03-27
+version = "7.x-2.0-alpha3+98-dev"
+core = "7.x"
+project = "media"
+datestamp = "1427472891"
+

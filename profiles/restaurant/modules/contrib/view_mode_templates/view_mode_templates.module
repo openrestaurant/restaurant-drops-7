@@ -10,8 +10,8 @@
  */
 function view_mode_templates_theme() {
   $theme_functions = array();
-  
-  // view mode templates
+
+  // View mode templates
   $templates = _view_mode_templates();
   foreach ($templates as $template => $module) {
     $theme_functions[$template] = array(
@@ -33,6 +33,8 @@ function view_mode_templates_preprocess(&$variables, $hook) {
     $bundle = $variables['elements']['#bundle'];
     $view_mode = $variables['elements']['#view_mode'];
     $variables['theme_hook_suggestions'][] = $entity_type . '__' . $bundle . '__' . $view_mode;
+    $variables['theme_hook_suggestions'][] = $entity_type . '__' . $bundle;
+    $variables['theme_hook_suggestions'][] = $entity_type . '__' . $view_mode;
   }
 }
 
@@ -41,7 +43,7 @@ function view_mode_templates_preprocess(&$variables, $hook) {
  */
 function _view_mode_templates() {
   $templates = array();
-  
+
   foreach (module_implements('view_mode_templates') as $module) {
     $module_templates = module_invoke($module, 'view_mode_templates');
     foreach ($module_templates as $template) {

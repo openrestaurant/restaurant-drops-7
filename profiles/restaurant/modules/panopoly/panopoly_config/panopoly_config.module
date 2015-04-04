@@ -21,7 +21,6 @@ function panopoly_config_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
 
-  // Create pages for each config group.
   $panopoly_config = _panopoly_config_get_config();
   foreach ($panopoly_config as $group_name => $group_info) {
     // Get variable_group_name.
@@ -56,8 +55,6 @@ function panopoly_config_variable_update($name, $value, $old_value, $options) {
  *
  * @param $name
  *  The name of the config.
- * @param $default
- *  The default value for the config.
  * @return
  *  The value of the variable.
  */
@@ -124,7 +121,8 @@ function _panopoly_config_get_config() {
  *
  * @param $group_name
  *  The group name.
- * @return string
+ *
+ * @return
  *  THe variable group name.
  */
 function _panopoly_config_get_config_variable_group_name($group_name) {
@@ -139,7 +137,8 @@ function _panopoly_config_get_config_variable_group_name($group_name) {
  *
  * @param $config_name
  *  The config name.
- * @return string.
+ *
+ * @return
  *  THe variable name.
  */
 function _panopoly_config_get_config_variable_name($config_name) {
@@ -155,7 +154,8 @@ function _panopoly_config_get_config_variable_name($config_name) {
  *
  * @param $name
  *  The variable name.
- * @return string.
+ *
+ * @return
  *  The site variable name.
  */
 function _panopoly_config_get_site_variable_name($name) {
@@ -168,7 +168,8 @@ function _panopoly_config_get_site_variable_name($name) {
  *
  * @param $name
  *  The variable name.
- * @return bool.
+ *
+ * @return
  *  TRUE if variable is a config.
  */
 function _panopoly_config_is_variable_a_config($name) {

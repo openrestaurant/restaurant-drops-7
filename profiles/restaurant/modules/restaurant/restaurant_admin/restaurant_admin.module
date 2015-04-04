@@ -22,7 +22,7 @@ function restaurant_admin_menu_alter(&$items) {
 }
 
 /**
- * Implementation of hook_link_alter()
+ * Implements hook_link_alter().
  */
 function restaurant_admin_menu_link_alter(&$item) {
   // Automatically set all of the settings elements to be children of the main parent element.

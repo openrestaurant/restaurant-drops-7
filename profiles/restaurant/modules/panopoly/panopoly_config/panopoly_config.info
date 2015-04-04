@@ -6,3 +6,11 @@ version = 7.x-1.0
 project = panopoly_config
 dependencies[] = variable
 features[features_api][] = api:2
+
+
+; Information added by drush on 2015-03-27
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "panopoly_config"
+datestamp = "1427473158"
+

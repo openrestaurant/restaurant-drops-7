@@ -11267,7 +11267,7 @@ fieldset .panel-body {
 
 /* line 73, ../../../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.0.13/stylesheets/compass_radix/_form.scss */
 html.js input.form-autocomplete {
-  background: url('../images/throbber.gif?1407842914') no-repeat right 8px white !important;
+  background: url('../images/throbber.gif?1408747194') no-repeat right 8px white !important;
 }
 /* line 76, ../../../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.0.13/stylesheets/compass_radix/_form.scss */
 html.js input.throbbing {
@@ -11970,30 +11970,31 @@ address i {
 /* line 7, ../sass/partials/_layout.scss */
 .container, body.page-is-not-panel .main {
   max-width: 970px !important;
+  background: red;
 }
 
-/* line 16, ../sass/partials/_layout.scss */
+/* line 17, ../sass/partials/_layout.scss */
 body.page-header-hidden .header {
   display: none;
 }
 
-/* line 24, ../sass/partials/_layout.scss */
+/* line 25, ../sass/partials/_layout.scss */
 body.page-top-hidden .top {
   display: none;
 }
 
-/* line 31, ../sass/partials/_layout.scss */
+/* line 32, ../sass/partials/_layout.scss */
 .main {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-/* line 36, ../sass/partials/_layout.scss */
+/* line 37, ../sass/partials/_layout.scss */
 body.page-is-panel .main {
   padding-top: 0;
 }
 
-/* line 48, ../sass/partials/_layout.scss */
+/* line 49, ../sass/partials/_layout.scss */
 .footer {
   background-color: #e7e7e7;
   color: #555555;
@@ -12003,7 +12004,7 @@ body.page-is-panel .main {
   padding-bottom: 60px;
 }
 
-/* line 56, ../sass/partials/_layout.scss */
+/* line 57, ../sass/partials/_layout.scss */
 .col-eh {
   margin-bottom: 30px;
 }
